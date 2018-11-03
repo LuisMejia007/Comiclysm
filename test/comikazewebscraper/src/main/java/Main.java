@@ -4,7 +4,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.util.ArrayList;
-
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Main {
@@ -93,45 +95,68 @@ public class Main {
             try {
                 final Document doc = Jsoup.connect(url).get();
 
-                for (Element comic : doc.select("section.pi-item div.pi-item div.hlist")) {
+//                for (Element comic : doc.select("section.pi-item div.pi-item div.hlist")) {
+//
+//                    String comicImg = " blank";
+//
+////                    System.out.println("WriteR: " + comic.getElementsByTag("a").first().text());
+//                    String comicWriter = comic.getElementsByTag("a").first().text();
+//                    comicVol.issues.get(issueCounter).setWriter(comicWriter);
+//                    comicVol.issues.get(issueCounter).setImgUrl(comicImg);
+//
+////                    String comicArtist = comic.firstElementSibling().nextElementSibling().getElementsByTag("a").text();
+////                    System.out.println("Artist: " + comicArtist);
+////                    comicVol.issues.get(issueCounter).setArtist(comicArtist);
+//
+//
+//
+//                    num_counter++;
+//
+//                    // We only want about two creators at a time (keeping it simple as possible)
+//                    if (num_counter >= 2) {
+//                        break;
+//                    }
+//                }
 
-                    String comicImg = " blank";
-                    String comicWriter = comic.getElementsByTag("a").first().text();;
 
+                for (Element comic: doc.select("div.container ul.categories")) {
 
+                        //System.out.println(comic.getElementsByTag("a").attr("[...]/Writer"));
+                     List<String> creators = comic.getElementsByClass("category normal").eachAttr("data-name");
 
-                    comicVol.issues.get(issueCounter).setWriter(comicWriter);
-                    comicVol.issues.get(issueCounter).setImgUrl(comicImg);
+                     boolean isAWriter = false;
+                     for (String creator: creators ) {
 
-                    num_counter++;
+                         isAWriter = creator.contains("Writer");
+                         String test = creator;
+                         if (isAWriter) {
+                             System.out.println(creator);
+                             break;
+                         }
+                     }
 
-                    // We only want about two creators at a time (keeping it simple as possible)
-                    if (num_counter >= 2) {
-                        break;
-                    }
                 }
 
                 num_counter = 0;
-
-                for (Element comic : doc.select("section.pi-item div.pi-item div.hlist")) {
-
-
-                    String comicArtist = comic.firstElementSibling().nextElementSibling().getElementsByTag("a").text();
-                    System.out.println("Artist: " + comicArtist);
-                    comicVol.issues.get(issueCounter).setArtist(comicArtist);
-
-                    num_counter++;
-
-                    // We only want about two creators at a time (keeping it simple as possible)
-                    if (num_counter >= 2) {
-                        break;
-                    }
-
-                }
-
-
                 issueCounter++;
-                num_counter = 0;
+
+
+//                for (Element comic : doc.select("section.pi-item div.pi-item div.hlist")) {
+//
+//
+//                    String comicArtist = comic.firstElementSibling().nextElementSibling().getElementsByTag("a").text();
+//                    System.out.println("Artist: " + comicArtist);
+//                    comicVol.issues.get(issueCounter).setArtist(comicArtist);
+//
+//                    num_counter++;
+//
+//                    // We only want about two creators at a time (keeping it simple as possible)
+//                    if (num_counter >= 2) {
+//                        break;
+//                    }
+//
+//                }
+
             }  catch(Exception E) {
 
             }
