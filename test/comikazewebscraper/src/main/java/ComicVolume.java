@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class ComicVolume {
 
@@ -41,6 +42,15 @@ public class ComicVolume {
 
         for(Comic comic:  this.issues) {
             comic.printInfo();
+            comic.setComicInfo();
         }
     }
+
+    public void writeComicInfo() {
+        for(Comic comic: this.issues) {
+            comic.setComicInfo();
+        }
+    }
+
+
 }

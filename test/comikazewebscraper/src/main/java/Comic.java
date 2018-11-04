@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Comic {
@@ -89,7 +88,7 @@ public class Comic {
     }
 
     public void printInfo() {
-        System.out.print(this.comicId + ",");
+        System.out.print(",");
         System.out.print(this.comicName + ",");
         System.out.print(this.writer + ",");
         System.out.print(this.artist + ",");
@@ -133,11 +132,14 @@ public class Comic {
         this.info = info;
     }
 
-    public String getComicInfo() {
-        return comicInfo;
+    public String[] getComicInfo() {
+        return comicInfo.split(",");
     }
 
-    public void setComicInfo(String comicInfo) {
-        this.comicInfo = comicInfo;
+    public void setComicInfo() {
+        this.comicInfo = "," +
+        this.comicName + "," + this.writer + "," +  this.artist + "," +
+        this.publicationDate + "," +  this.imgUrl + "," +  this.comicVolume + "," +
+        this.comicTradeId + "," + this.comicInventoryId;
     }
 }

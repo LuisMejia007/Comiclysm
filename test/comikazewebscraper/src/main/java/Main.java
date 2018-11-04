@@ -1,8 +1,12 @@
 
+import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -146,6 +150,29 @@ public class Main {
         for (ComicVolume comic: comics) {
             System.out.println(comic.comicVolume + ",");
             comic.printIssues();
+           // comic.writeComicInfo();
+        }
+    }
+
+    public static void writeComicBookToCSV(String path) {
+
+        String comicPath = path;
+        File comicFile = new File(comicPath);
+
+        try {
+            FileWriter comicOutFile = new FileWriter(comicFile);
+            CSVWriter comicCSVWriter = new CSVWriter(comicOutFile);
+
+            for (ComicVolume comicVols: comics) {
+                for (Comic comicBook: comicVols.getIssues()) {
+                    comicCSVWriter.writeNext(comicBook.getComicInfo());
+                }
+            }
+
+            comicCSVWriter.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -158,7 +185,11 @@ public class Main {
     public static void main(String args[]){
         System.out.println("Hello World!!!!!");
         String url = "http://dc.wikia.com/wiki/Category:Volumes_Currently_in_Publication?display=page&sort=mostvisited";
+
+        // You can modify this path to lead towards the location of your csv file
+        String csvFilePath = "/Users/luismejia360/Desktop/CSE111/Project/CSV/comics.csv";
         getDCComicVolumes(url);
         printAllMyComics();
+        writeComicBookToCSV(csvFilePath);
     }
 }
