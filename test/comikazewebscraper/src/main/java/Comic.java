@@ -88,7 +88,6 @@ public class Comic {
     }
 
     public void printInfo() {
-        System.out.print(",");
         System.out.print(this.comicName + ",");
         System.out.print(this.writer + ",");
         System.out.print(this.artist + ",");
@@ -137,7 +136,7 @@ public class Comic {
     }
 
     public void setComicInfo() {
-        this.comicInfo = "," +
+        this.comicInfo =
         this.comicName + "," + this.writer + "," +  this.artist + "," +
         this.publicationDate + "," +  this.imgUrl + "," +  this.comicVolume + "," +
         this.comicTradeId + "," + this.comicInventoryId;

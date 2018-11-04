@@ -131,7 +131,8 @@ public class Main {
                     }
 
                     for(Element comicDate: doc.select("h2.pi-title.pi-item-spacing.pi-item:nth-of-type(3)")) {
-                        comicVol.issues.get(issueCounter).setPublicationDate(comicDate.text());
+
+                        comicVol.issues.get(issueCounter).setPublicationDate(comicDate.text().replace(",", " "));
                     }
 
                 num_counter = 0;
