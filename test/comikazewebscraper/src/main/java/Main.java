@@ -125,37 +125,32 @@ public class Main {
                      List<String> creators = comic.getElementsByClass("category normal").eachAttr("data-name");
 
                      boolean isAWriter = false;
+                     boolean isAnArtist = false;
                      for (String creator: creators ) {
-
                          isAWriter = creator.contains("Writer");
-                         String test = creator;
                          if (isAWriter) {
-                             System.out.println(creator);
+//                             System.out.println(creator);
+                             creator = creator.replace("/Writer", "");
+                             comicVol.issues.get(issueCounter).setWriter(creator);
                              break;
                          }
-                     }
+                    }
 
-                }
+                    for (String creator: creators) {
+                         isAnArtist = creator.contains("Cover Artist");
+                          if (isAnArtist) {
+                            creator = creator.replace("/Cover Artist", "");
+                            comicVol.issues.get(issueCounter).setArtist(creator);
+                            break;
+                        }
+
+                     }
 
                 num_counter = 0;
                 issueCounter++;
 
 
-//                for (Element comic : doc.select("section.pi-item div.pi-item div.hlist")) {
-//
-//
-//                    String comicArtist = comic.firstElementSibling().nextElementSibling().getElementsByTag("a").text();
-//                    System.out.println("Artist: " + comicArtist);
-//                    comicVol.issues.get(issueCounter).setArtist(comicArtist);
-//
-//                    num_counter++;
-//
-//                    // We only want about two creators at a time (keeping it simple as possible)
-//                    if (num_counter >= 2) {
-//                        break;
-//                    }
-//
-//                }
+                }
 
             }  catch(Exception E) {
 
