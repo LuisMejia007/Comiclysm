@@ -24,7 +24,6 @@ public class ComicVolume {
         System.out.println();
 
         for(Comic comic:  this.issues) {
-//            System.out.print(comic.getComicBookName() + ",");
             comic.printInfo();
         }
 

@@ -127,8 +127,7 @@ public class Main {
                         break;
                     }
 
-                    for(Element comicDate: doc.select("h2.pi-title.pi-item-spacing.pi-item:nth-of-type(3)"))
-                    {
+                    for(Element comicDate: doc.select("h2.pi-title.pi-item-spacing.pi-item:nth-of-type(3)")) {
                         comicVol.issues.get(issueCounter).setPublicationDate(comicDate.text());
                     }
 
@@ -141,7 +140,6 @@ public class Main {
                 System.out.println(E);
             }
         }
-        issueCounter = 0;
     }
 
     public static void printAllMyComics() {

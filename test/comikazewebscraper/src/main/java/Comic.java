@@ -8,15 +8,20 @@ public class Comic {
     String comicVolume;
     ArrayList<String> issues = new ArrayList<String>();
     ArrayList<String> info = new ArrayList<String>();
+    int comicId;
     String comicName;
     String publisher;
     String publicationDate;
     String writer;
     String artist;
     String imgUrl;
+    String comicInfo;
 
 
-    public Comic (){ }
+    public Comic () {
+
+        
+    }
 
 
 
@@ -120,5 +125,13 @@ public class Comic {
 
     public void copyInfo(ArrayList<String> info) {
         this.info = info;
+    }
+
+    public String getComicInfo() {
+        return comicInfo;
+    }
+
+    public void setComicInfo(String comicInfo) {
+        this.comicInfo = comicInfo;
     }
 }
