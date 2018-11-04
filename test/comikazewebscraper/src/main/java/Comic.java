@@ -9,6 +9,8 @@ public class Comic {
     ArrayList<String> issues = new ArrayList<String>();
     ArrayList<String> info = new ArrayList<String>();
     int comicId;
+    int comicInventoryId;
+    int comicTradeId;
     String comicName;
     String publisher;
     String publicationDate;
@@ -19,8 +21,9 @@ public class Comic {
 
 
     public Comic () {
-
-        
+        this.comicId = 0;
+        this.comicInventoryId = 0;
+        this.comicTradeId = 0;
     }
 
 
@@ -86,12 +89,15 @@ public class Comic {
     }
 
     public void printInfo() {
-        System.out.print(this.comicVolume + ",");
+        System.out.print(this.comicId + ",");
         System.out.print(this.comicName + ",");
         System.out.print(this.writer + ",");
         System.out.print(this.artist + ",");
         System.out.print(this.publicationDate + ",");
-        System.out.print(this.imgUrl);
+        System.out.print(this.imgUrl + ",");
+        System.out.print(this.comicVolume + ",");
+        System.out.print(this.comicTradeId + ",");
+        System.out.print(this.comicInventoryId);
         System.out.println();
     }
 

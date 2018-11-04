@@ -26,7 +26,6 @@ public class Main {
             // For-loop will loop inside the parent element specified within the arguments inside doc.select(...)
             for(Element comic_vols : doc.select("div.mw-content-ltr table tr td ul li")) {
 
-
                 String comicbookVol = comic_vols.getElementsByTag("a").text();
                 comicbookVol = comicbookVol.replace(" ", "_");
                 getDCComicIssues(comicbookVol);
@@ -47,7 +46,7 @@ public class Main {
 
         ComicVolume comicVolume = new ComicVolume();
 
-        comicVolume.setComicVolumeName(comicBookVol);
+        comicVolume.setComicVolumeName(comicBookVol.replace("_", " "));
 
         try {
             final Document doc = Jsoup.connect(url).get();
@@ -59,7 +58,7 @@ public class Main {
             for (Element comicBookElement : firstComicList.getElementsByTag("a")) {
                 String comicBookIssue = comicBookElement.text();
                 Comic comic = new Comic();
-                comic.setComicVolume(comicBookVol);
+                comic.setComicVolume(comicBookVol.replace("_", " "));
                 comic.setComicBookName(comicBookIssue);
                 comicVolume.addIssue(comic);
             }
