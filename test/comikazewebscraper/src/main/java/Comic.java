@@ -81,8 +81,11 @@ public class Comic {
     }
 
     public void printInfo() {
+        System.out.print(this.comicVolume + ",");
+        System.out.print(this.comicName + ",");
         System.out.print(this.writer + ",");
         System.out.print(this.artist + ",");
+        System.out.print(this.publicationDate + ",");
         System.out.print(this.imgUrl);
         System.out.println();
     }

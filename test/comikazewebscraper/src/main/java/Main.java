@@ -75,7 +75,7 @@ public class Main {
 
     public static void getDCComicIssueInfo (ComicVolume comicVol) {
 
-//        String url = "http://dc.wikia.com/wiki/Wonder_Woman_Vol_5_1";
+//        Ex: String url = "http://dc.wikia.com/wiki/Wonder_Woman_Vol_5_1";
         ArrayList<String>comicUrls = new ArrayList<String>();
 
         int counter = 1;
@@ -95,33 +95,8 @@ public class Main {
             try {
                 final Document doc = Jsoup.connect(url).get();
 
-//                for (Element comic : doc.select("section.pi-item div.pi-item div.hlist")) {
-//
-//                    String comicImg = " blank";
-//
-////                    System.out.println("WriteR: " + comic.getElementsByTag("a").first().text());
-//                    String comicWriter = comic.getElementsByTag("a").first().text();
-//                    comicVol.issues.get(issueCounter).setWriter(comicWriter);
-//                    comicVol.issues.get(issueCounter).setImgUrl(comicImg);
-//
-////                    String comicArtist = comic.firstElementSibling().nextElementSibling().getElementsByTag("a").text();
-////                    System.out.println("Artist: " + comicArtist);
-////                    comicVol.issues.get(issueCounter).setArtist(comicArtist);
-//
-//
-//
-//                    num_counter++;
-//
-//                    // We only want about two creators at a time (keeping it simple as possible)
-//                    if (num_counter >= 2) {
-//                        break;
-//                    }
-//                }
-
-
+                // Get Comic Book Writers and Artists
                 for (Element comic: doc.select("div.container ul.categories")) {
-
-                        //System.out.println(comic.getElementsByTag("a").attr("[...]/Writer"));
                      List<String> creators = comic.getElementsByClass("category normal").eachAttr("data-name");
 
                      boolean isAWriter = false;
@@ -129,7 +104,6 @@ public class Main {
                      for (String creator: creators ) {
                          isAWriter = creator.contains("Writer");
                          if (isAWriter) {
-//                             System.out.println(creator);
                              creator = creator.replace("/Writer", "");
                              comicVol.issues.get(issueCounter).setWriter(creator);
                              break;
@@ -146,14 +120,25 @@ public class Main {
 
                      }
 
+                    for (Element comicImg: doc.select("figure.pi-image a.image-thumbnail")) {
+
+                        String imgUrl = comicImg.getElementsByAttribute("title").first().attr("href");
+                        comicVol.issues.get(issueCounter).setImgUrl(imgUrl);
+                        break;
+                    }
+
+                    for(Element comicDate: doc.select("h2.pi-title.pi-item-spacing.pi-item:nth-of-type(3)"))
+                    {
+                        comicVol.issues.get(issueCounter).setPublicationDate(comicDate.text());
+                    }
+
                 num_counter = 0;
                 issueCounter++;
-
-
                 }
 
-            }  catch(Exception E) {
 
+            }  catch(Exception E) {
+                System.out.println(E);
             }
         }
         issueCounter = 0;
@@ -162,7 +147,7 @@ public class Main {
     public static void printAllMyComics() {
 
         for (ComicVolume comic: comics) {
-            System.out.print(comic.comicVolume + ",");
+            System.out.println(comic.comicVolume + ",");
             comic.printIssues();
         }
     }
