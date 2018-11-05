@@ -49,8 +49,10 @@ public class Main {
         ArrayList<String> comicBookIssues = new ArrayList<String>();
 
         ComicVolume comicVolume = new ComicVolume();
-
-        comicVolume.setComicVolumeName(comicBookVol.replace("_", " "));
+        String temp = comicBookVol.replace("_", " ");
+        temp = temp.replace(",", " ");
+        temp = temp.replace(".", "");
+        comicVolume.setComicVolumeName(temp);
 
         try {
             final Document doc = Jsoup.connect(url).get();
@@ -61,8 +63,12 @@ public class Main {
 
             for (Element comicBookElement : firstComicList.getElementsByTag("a")) {
                 String comicBookIssue = comicBookElement.text();
+                comicBookIssue = comicBookIssue.replace(",", " ");
+                comicBookIssue = comicBookIssue.replace(".", "");
                 Comic comic = new Comic();
-                comic.setComicVolume(comicBookVol.replace("_", " "));
+//                temp = comicBookVol.replace("_", " ");
+//                temp = temp.replace(",", " ");
+                comic.setComicVolume(temp);
                 comic.setComicBookName(comicBookIssue);
                 comicVolume.addIssue(comic);
             }
@@ -108,6 +114,8 @@ public class Main {
                          isAWriter = creator.contains("Writer");
                          if (isAWriter) {
                              creator = creator.replace("/Writer", "");
+                             creator = creator.replace(".", "");
+                             creator = creator.replace(",", " ");
                              comicVol.issues.get(issueCounter).setWriter(creator);
                              break;
                          }
@@ -117,6 +125,8 @@ public class Main {
                          isAnArtist = creator.contains("Cover Artist");
                           if (isAnArtist) {
                             creator = creator.replace("/Cover Artist", "");
+                            creator = creator.replace(".", "");
+                            creator = creator.replace(",", " ");
                             comicVol.issues.get(issueCounter).setArtist(creator);
                             break;
                         }
@@ -151,7 +161,6 @@ public class Main {
         for (ComicVolume comic: comics) {
             System.out.println(comic.comicVolume + ",");
             comic.printIssues();
-           // comic.writeComicInfo();
         }
     }
 
@@ -177,6 +186,32 @@ public class Main {
         }
     }
 
+    public static void writeComicVolsToCSV(String path) {
+        String comicVolPath = path;
+
+        for(ComicVolume comicVol: comics) {
+            comicVol.getComicVolume().replace("_", " ");
+            comicVol.getComicVolume().replace(",", " ");
+        }
+
+        File comicVolFile = new File(comicVolPath);
+
+        try {
+            FileWriter comicVolOutFile = new FileWriter(comicVolFile);
+            CSVWriter comicVolCSVWriter = new CSVWriter(comicVolOutFile);
+
+            for (ComicVolume comicVol: comics) {
+
+                comicVolCSVWriter.writeNext(comicVol.getComicVolumeInfo());
+            }
+            comicVolCSVWriter.close();
+
+        } catch(Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+
     public static void printComicBookNames(ArrayList<String> comics) {
         System.out.println("Comics length: " + comics.size());
         for (String comic: comics) {
@@ -187,10 +222,12 @@ public class Main {
         System.out.println("Hello World!!!!!");
         String url = "http://dc.wikia.com/wiki/Category:Volumes_Currently_in_Publication?display=page&sort=mostvisited";
 
-        // You can modify this path to lead towards the location of your csv file
+        // You can modify these path to lead towards the location of your csv file
         String csvFilePath = "/Users/luismejia360/Desktop/CSE111/Project/CSV/comics.csv";
+        String csvVolumeFilePath = "/Users/luismejia360/Desktop/CSE111/Project/CSV/volume.csv";
         getDCComicVolumes(url);
-        printAllMyComics();
+        printAllMyComics(); //!! Very important to call this function. Setting correct Comic information into CSV is dependent on this call
         writeComicBookToCSV(csvFilePath);
+       // writeComicVolsToCSV(csvVolumeFilePath);
     }
 }

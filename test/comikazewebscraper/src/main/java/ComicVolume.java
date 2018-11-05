@@ -10,7 +10,7 @@ public class ComicVolume {
 
 
     public ComicVolume() {
-        this.volumePublisherId = 0;
+        this.volumePublisherId = 1; // 1 - DC Comics
     }
 
     public void setComicVolumeName(String comicVolume) {
@@ -46,11 +46,13 @@ public class ComicVolume {
         }
     }
 
-    public void writeComicInfo() {
-        for(Comic comic: this.issues) {
-            comic.setComicInfo();
-        }
+    public String[] getComicVolumeInfo() {
+        String info = this.getComicVolume() + "," + this.getVolumePublisherId();
+        return info.split(",");
     }
+
+
+
 
 
 }
