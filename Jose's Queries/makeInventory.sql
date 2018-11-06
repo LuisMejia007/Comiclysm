@@ -1,0 +1,1 @@
+INSERT INTO Inventory(inventory_name, inventory_userID)VALUES ('My Favorite Comics', 1);

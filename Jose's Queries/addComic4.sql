@@ -1,0 +1,1 @@
+UPDATE Comic SET comic_inventoryID = 1 WHERE comic_name = "Batman (Volume 3) #1";

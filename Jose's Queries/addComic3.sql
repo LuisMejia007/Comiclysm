@@ -1,0 +1,1 @@
+UPDATE Comic SET comic_inventoryID = 1 WHERE comic_name = "Suicide Squad (Volume 5) #1";
