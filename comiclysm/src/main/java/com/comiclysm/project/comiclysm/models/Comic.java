@@ -10,107 +10,109 @@ public class Comic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int comic_id;
+    @Column(name = "comic_id")
+    int comicId;
 
     @Column(name = "comic_name")
-    String comic_name;
+    String comicName;
     @Column(name = "comic_writer")
-    String comic_writer;
+    String comicWriter;
     @Column(name = "comic_artist")
-    String comic_artist;
+    String comicArtist;
     @Column(name = "comic_publication_date")
-    String comic_publication_date;
+    String comicPublicationDate;
     @Column(name = "comic_cover_img")
-    String comic_cover_img;
+    String comicCoverImg;
     @Column(name = "comic_volume_name")
-    String comic_volume_name;
+    String comicVolumeName;
     @Column(name = "comic_trade_id")
-    String comic_trade_id;
+    String comicTradeId;
     @Column(name = "comic_inventory_id")
-    String comic_inventory_id;
+    String comicInventoryId;
 
 
     public Comic() { }
-    public Comic(String comic_name, String comic_writer, String comic_artist, String comic_publication_date, String comic_cover_img, String comic_volume_name, String comic_trade_id, String comic_inventory_id) {
-        this.comic_name = comic_name;
-        this.comic_writer = comic_writer;
-        this.comic_artist = comic_artist;
-        this.comic_publication_date = comic_publication_date;
-        this.comic_cover_img = comic_cover_img;
-        this.comic_volume_name = comic_volume_name;
-        this.comic_trade_id = comic_trade_id;
-        this.comic_inventory_id = comic_inventory_id;
+
+    public Comic(String comicName, String comicWriter, String comicArtist, String comicPublicationDate, String comicCoverImg, String comicVolumeName, String comicTradeId, String comicInventoryId) {
+        this.comicName = comicName;
+        this.comicWriter = comicWriter;
+        this.comicArtist = comicArtist;
+        this.comicPublicationDate = comicPublicationDate;
+        this.comicCoverImg = comicCoverImg;
+        this.comicVolumeName = comicVolumeName;
+        this.comicTradeId = comicTradeId;
+        this.comicInventoryId = comicInventoryId;
     }
 
-    public int getComic_id() {
-        return comic_id;
+    public int getComicId() {
+        return comicId;
     }
 
-    public void setComic_id(int comic_id) {
-        this.comic_id = comic_id;
+    public void setComicId(int comicId) {
+        this.comicId = comicId;
     }
 
-    public String getComic_name() {
-        return comic_name;
+    public String getComicName() {
+        return comicName;
     }
 
-    public void setComic_name(String comic_name) {
-        this.comic_name = comic_name;
+    public void setComicName(String comicName) {
+        this.comicName = comicName;
     }
 
-    public String getComic_writer() {
-        return comic_writer;
+    public String getComicWriter() {
+        return comicWriter;
     }
 
-    public void setComic_writer(String comic_writer) {
-        this.comic_writer = comic_writer;
+    public void setComicWriter(String comicWriter) {
+        this.comicWriter = comicWriter;
     }
 
-    public String getComic_artist() {
-        return comic_artist;
+    public String getComicArtist() {
+        return comicArtist;
     }
 
-    public void setComic_artist(String comic_artist) {
-        this.comic_artist = comic_artist;
+    public void setComicArtist(String comicArtist) {
+        this.comicArtist = comicArtist;
     }
 
-    public String getComic_publication_date() {
-        return comic_publication_date;
+    public String getComicPublicationDate() {
+        return comicPublicationDate;
     }
 
-    public void setComic_publication_date(String comic_publication_date) {
-        this.comic_publication_date = comic_publication_date;
+    public void setComicPublicationDate(String comicPublicationDate) {
+        this.comicPublicationDate = comicPublicationDate;
     }
 
-    public String getComic_cover_img() {
-        return comic_cover_img;
+    public String getComicCoverImg() {
+        return comicCoverImg;
     }
 
-    public void setComic_cover_img(String comic_cover_img) {
-        this.comic_cover_img = comic_cover_img;
+    public void setComicCoverImg(String comicCoverImg) {
+        this.comicCoverImg = comicCoverImg;
     }
 
-    public String getComic_volume_name() {
-        return comic_volume_name;
+    public String getComicVolumeName() {
+        return comicVolumeName;
     }
 
-    public void setComic_volume_name(String comic_volume_name) {
-        this.comic_volume_name = comic_volume_name;
+    public void setComicVolumeName(String comicVolumeName) {
+        this.comicVolumeName = comicVolumeName;
     }
 
-    public String getComic_trade_id() {
-        return comic_trade_id;
+    public String getComicTradeId() {
+        return comicTradeId;
     }
 
-    public void setComic_trade_id(String comic_trade_id) {
-        this.comic_trade_id = comic_trade_id;
+    public void setComicTradeId(String comicTradeId) {
+        this.comicTradeId = comicTradeId;
     }
 
-    public String getComic_inventory_id() {
-        return comic_inventory_id;
+    public String getComicInventoryId() {
+        return comicInventoryId;
     }
 
-    public void setComic_inventory_id(String comic_inventory_id) {
-        this.comic_inventory_id = comic_inventory_id;
+    public void setComicInventoryId(String comicInventoryId) {
+        this.comicInventoryId = comicInventoryId;
     }
 }

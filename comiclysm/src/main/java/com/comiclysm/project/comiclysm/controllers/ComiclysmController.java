@@ -23,4 +23,21 @@ public class ComiclysmController {
         return this.comiclysmService.getComic();
     }
 
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value="/getComics/{comic_name}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getComicByName(@PathVariable String comic_name) {
+        comic_name = comic_name.replace("_", " ");
+        return this.comiclysmService.getComicByComicName(comic_name);
+    }
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value="/getComics2/{comic_name}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getComicByName2(@PathVariable String comic_name) {
+        return this.comiclysmService.testComicByName(comic_name);
+    }
 }
