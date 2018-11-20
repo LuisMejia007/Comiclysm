@@ -17,4 +17,7 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
 
 
     List<Comic> findAllByComicNameLikeIgnoreCase(String comicName);
+    List<Comic> findAllByComicVolumeNameLikeIgnoreCase(String comicVolumeName);
+    List<Comic> findAllByComicWriterLikeIgnoreCase(String comicWriter);
+    List<Comic> findAllByComicArtistLikeIgnoreCase(String comicArtist);
 }

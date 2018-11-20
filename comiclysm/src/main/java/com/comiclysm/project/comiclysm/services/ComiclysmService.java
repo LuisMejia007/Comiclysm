@@ -25,6 +25,7 @@ public class ComiclysmService {
     }
 
     public List<Comic> getComicByComicName(String comic_name) {
+        comic_name = comic_name.replace("_", " ");
        return this.comicRepository.findAllByComicNameLikeIgnoreCase('%' + comic_name + '%');
     }
 
@@ -32,6 +33,20 @@ public class ComiclysmService {
         return this.comicRepository.findByComicName('%' + comicName + '%');
     }
 
+    public List<Comic> getComicsByVolumeName(String volumeName) {
+        volumeName = volumeName.replace("_", " ");
+        return this.comicRepository.findAllByComicVolumeNameLikeIgnoreCase('%' + volumeName + '%');
+    }
+
+    public List<Comic> getComicsByWriter(String comicWriter) {
+        comicWriter = comicWriter.replace("_", " ");
+        return this.comicRepository.findAllByComicWriterLikeIgnoreCase('%' + comicWriter + '%');
+    }
+
+    public List<Comic> getComicsByArtist(String comicArtist) {
+        comicArtist = comicArtist.replace("_", " ");
+        return this.comicRepository.findAllByComicArtistLikeIgnoreCase('%' + comicArtist + '%');
+    }
 
 
 

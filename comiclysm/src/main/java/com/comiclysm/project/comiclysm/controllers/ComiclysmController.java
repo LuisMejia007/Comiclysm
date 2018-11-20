@@ -29,15 +29,32 @@ public class ComiclysmController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Comic> getComicByName(@PathVariable String comic_name) {
-        comic_name = comic_name.replace("_", " ");
         return this.comiclysmService.getComicByComicName(comic_name);
     }
 
-    @CrossOrigin(origins = "http://localhost:1200")
-    @GetMapping(value="/getComics2/{comic_name}")
+    @CrossOrigin(origins ="http://localhost:1200")
+    @GetMapping(value="/getComicsByVol/{volume_name}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Comic> getComicByName2(@PathVariable String comic_name) {
-        return this.comiclysmService.testComicByName(comic_name);
+    public List<Comic> getComicsByVolumeName(@PathVariable String volume_name) {
+        return this.comiclysmService.getComicsByVolumeName(volume_name);
     }
+
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value="/getComicsByWriter/{writer_name}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getComicsByWriter(@PathVariable String writer_name) {
+        return this.comiclysmService.getComicsByWriter(writer_name);
+    }
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value="/getComicsByArtist/{artist_name}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getComicsByArtist(@PathVariable String artist_name) {
+        return this.comiclysmService.getComicsByArtist(artist_name);
+    }
+
 }

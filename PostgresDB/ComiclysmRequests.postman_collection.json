@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "8be0b075-6423-4b7e-baed-de994590f05b",
+		"name": "ComiclysmRequests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Comics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/getComics/Action_Comics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getComics",
+						"Action_Comics"
+					]
+				},
+				"description": "Getting comics"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comics By Vol",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/getComicsByVol/Scooby-Doo_Team-Up_Vol_1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getComicsByVol",
+						"Scooby-Doo_Team-Up_Vol_1"
+					]
+				},
+				"description": "A GET Request to get comic books by their volume name"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comics By Writer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "Get all comic books written by specified writer"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comics by Artist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/getComicsByArtist/Joe_Shuster",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getComicsByArtist",
+						"Joe_Shuster"
+					]
+				},
+				"description": "Get all comics by specified artist"
+			},
+			"response": []
+		}
+	]
+}
