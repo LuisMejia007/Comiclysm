@@ -1,0 +1,11 @@
+<div class = "user-registration-container">
+  <div class = "user_name_input_container">
+    <input placeholder = "username" [(ngModel)] = "userName">
+  </div>
+  <div class = "user_password_input_container">
+    <input placeholder = "password" [(ngModel)] = "userPassword">
+  </div>
+  <div class = "register_button_container">
+    <button class = "register-button"(click) = "registerUser(userName, userPassword)"> Register </button>
+  </div>
+</div>

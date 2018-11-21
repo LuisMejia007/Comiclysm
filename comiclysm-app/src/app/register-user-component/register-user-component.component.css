@@ -1,0 +1,24 @@
+
+.user-registration-container{  
+    width: 100%; 
+    display: block; 
+    margin: 0 auto;
+    background-color:black;
+}
+
+
+.user_name_input_container, .user_password_input_container, .register_button_container  { 
+    width: 100%; 
+    margin: 0 auto;
+    display: block;
+    flex-wrap: wrap;
+}
+
+.register_button { 
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: blue; 
+    color: white;
+}
+

@@ -15,6 +15,7 @@ public class ComiclysmController {
     @Autowired
     ComiclysmService comiclysmService;
 
+    // Getting all Comics
     @CrossOrigin(origins = "http://localhost:1200")
     @GetMapping(value = "/getComics")
     @ResponseStatus(HttpStatus.OK)
@@ -24,6 +25,7 @@ public class ComiclysmController {
     }
 
 
+    // Getting Comics by Name
     @CrossOrigin(origins = "http://localhost:1200")
     @GetMapping(value="/getComics/{comic_name}")
     @ResponseStatus(HttpStatus.OK)
@@ -32,6 +34,7 @@ public class ComiclysmController {
         return this.comiclysmService.getComicByComicName(comic_name);
     }
 
+    // Getting Comics by Volume Name
     @CrossOrigin(origins ="http://localhost:1200")
     @GetMapping(value="/getComicsByVol/{volume_name}")
     @ResponseStatus(HttpStatus.OK)
@@ -41,6 +44,7 @@ public class ComiclysmController {
     }
 
 
+    // Getting Comics By Writer
     @CrossOrigin(origins = "http://localhost:1200")
     @GetMapping(value="/getComicsByWriter/{writer_name}")
     @ResponseStatus(HttpStatus.OK)
@@ -49,6 +53,7 @@ public class ComiclysmController {
         return this.comiclysmService.getComicsByWriter(writer_name);
     }
 
+    // Getting Comics by Artist
     @CrossOrigin(origins = "http://localhost:1200")
     @GetMapping(value="/getComicsByArtist/{artist_name}")
     @ResponseStatus(HttpStatus.OK)
@@ -56,5 +61,8 @@ public class ComiclysmController {
     public List<Comic> getComicsByArtist(@PathVariable String artist_name) {
         return this.comiclysmService.getComicsByArtist(artist_name);
     }
+
+
+
 
 }
