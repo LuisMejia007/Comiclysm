@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
 import { ComiclysmService } from '../services/comiclysm.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user-component',
@@ -14,7 +15,7 @@ export class RegisterUserComponentComponent implements OnInit {
   userPassword: string;
   newUser: User;
 
-  constructor(private service: ComiclysmService) { }
+  constructor(private service: ComiclysmService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,7 +30,7 @@ export class RegisterUserComponentComponent implements OnInit {
     this.newUser = new User();
     this.newUser.setUserName(userName);
     this.newUser.setUserPassword(userPassword);
-
+    this.router.navigateByUrl('/home');
     this.service.addUser(this.newUser).subscribe();
   }
 

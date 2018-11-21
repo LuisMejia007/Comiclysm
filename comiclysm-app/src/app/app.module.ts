@@ -8,11 +8,27 @@ import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { ComiclysmService } from './services/comiclysm.service';
+import { HomeComponent } from './home/home.component';
+import { FeaturedHeroesComponent } from './featured-heroes/featured-heroes.component';
+import { FeaturedVolumesComponent } from './featured-volumes/featured-volumes.component';
+import { FeaturedComicsComponent } from './featured-comics/featured-comics.component';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { FeaturedHeroesHomeComponent } from './featured-heroes-home/featured-heroes-home.component';
+import { FeaturedVolumesHomeComponent } from './featured-volumes-home/featured-volumes-home.component';
+import { FeaturedComicsHomeComponent } from './featured-comics-home/featured-comics-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterUserComponentComponent
+    RegisterUserComponentComponent,
+    HomeComponent,
+    FeaturedHeroesComponent,
+    FeaturedVolumesComponent,
+    FeaturedComicsComponent,
+    SideNavigationComponent,
+    FeaturedHeroesHomeComponent,
+    FeaturedVolumesHomeComponent,
+    FeaturedComicsHomeComponent
   ],
   imports: [
     BrowserModule,

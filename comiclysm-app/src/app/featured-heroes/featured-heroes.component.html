@@ -1,0 +1,7 @@
+<div class = "featured-heroes-container"> 
+  <h1 class = "featured-heroes-header"> Featured Heroes </h1>
+  <div class = "featured-heroes-list" *ngFor= "let hero of featuredHeroes">
+    <img class = "heroImg" alt = "{{hero.heroName}} Image"src = "{{hero.heroImg}}">
+    <h1 class= "hero-name"> {{hero.heroName}} </h1>
+  </div>
+</div>
