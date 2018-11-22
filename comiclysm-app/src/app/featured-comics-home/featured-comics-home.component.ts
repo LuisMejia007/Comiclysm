@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Comic } from '../models/Comic';
+import { ComiclysmService } from '../services/comiclysm.service';
 
 @Component({
   selector: 'app-featured-comics-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedComicsHomeComponent implements OnInit {
 
-  constructor() { }
+
+  featuredComics: Comic[];
+  constructor(private service: ComiclysmService) { }
 
   ngOnInit() {
+  this.service.getFeaturedComics().subscribe(comics => this.featuredComics = comics);
   }
 
 }

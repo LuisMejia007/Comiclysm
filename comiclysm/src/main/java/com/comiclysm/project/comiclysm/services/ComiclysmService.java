@@ -4,9 +4,12 @@ import com.comiclysm.project.comiclysm.models.Comic;
 import com.comiclysm.project.comiclysm.repositories.ComicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +50,13 @@ public class ComiclysmService {
         comicArtist = comicArtist.replace("_", " ");
         return this.comicRepository.findAllByComicArtistLikeIgnoreCase('%' + comicArtist + '%');
     }
+
+
+    public List<Comic> getFeaturedComics() {
+        return this.comicRepository.getFeaturedComics(new PageRequest(0,10, Sort.Direction.ASC, "comicName"));
+    }
+
+
 
 
 

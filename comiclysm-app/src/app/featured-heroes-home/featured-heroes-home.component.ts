@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from '../models/Hero';
+import { Router } from '@angular/router';
+import {HEROES} from '../models/FeaturedHeroes';
 
 @Component({
   selector: 'app-featured-heroes-home',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedHeroesHomeComponent implements OnInit {
 
-  constructor() { }
+  featuredHeroes: Hero[] = [];
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.featuredHeroes[0] = HEROES[0];
+    this.featuredHeroes[1] = HEROES[1];
+    this.featuredHeroes[2] = HEROES[2];
   }
 
 }

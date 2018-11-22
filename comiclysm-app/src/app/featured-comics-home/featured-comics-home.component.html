@@ -1,3 +1,12 @@
-<p>
-  featured-comics-home works!
-</p>
+<div class = "featuredComicsHomeContainer">
+  <div class = "featuredComicsHeaderContainer">
+    <h1 class = "featuredComicsHeader"> Featured Comics </h1>
+    <a> see all </a>
+  </div>
+  <div class = "featuredComicsList">
+    <div class = "featuredComicsCard" *ngFor = "let comics of featuredComics">
+        <p>{{comics.comicName}}</p>
+    </div>
+  </div>
+
+</div>

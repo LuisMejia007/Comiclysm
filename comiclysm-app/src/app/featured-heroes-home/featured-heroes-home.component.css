@@ -1,0 +1,44 @@
+.heroImg { 
+    height: 350px;
+    width: 300px;
+}
+
+.featured-heroes-home-container { 
+    width: 100%;
+    margin: 0 auto;
+}
+
+.featured-heroes-header-container { 
+    width: 100%; 
+    margin: 2% auto;
+    flex-wrap: nowrap;
+    float:left;
+}
+
+.featured-heroes-header, .see-all-link { 
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    float: left;
+}
+
+
+
+.featured-heroes-home-list { 
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    float:left;
+}
+
+.featured-hero-card { 
+    display: block;
+    width: 33.33%;
+    margin: 0px;
+    float: left;
+}
+
+.featured-hero-name { 
+    width: 100%;
+    display: block;
+}

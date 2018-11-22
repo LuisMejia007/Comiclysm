@@ -1,3 +1,12 @@
-<p>
-  featured-heroes-home works!
-</p>
+<div class = "featured-heroes-home-container">
+  <div class = "featured-heroes-header-container">
+      <h1 class = "featured-heroes-header">Featured Heroes</h1>
+      <a class = "see-all-link" routerLink = "/seeAllFeaturedHeroes"> see all </a>
+  </div>
+  <div class = "featured-heroes-home-list">
+    <div class = "featured-hero-card" *ngFor = "let hero of featuredHeroes">
+      <img class = "heroImg" alt= "{{hero.heroName}} Img" src = "{{hero.heroImg}}"/>
+      <h1 class = "featured-hero-name"> {{hero.heroName }}</h1>
+    </div>
+  </div>
+</div>

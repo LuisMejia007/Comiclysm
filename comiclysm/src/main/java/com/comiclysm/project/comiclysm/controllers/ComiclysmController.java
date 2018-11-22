@@ -64,5 +64,14 @@ public class ComiclysmController {
 
 
 
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value="/getFeaturedComics")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getFeaturedComics() {
+        return this.comiclysmService.getFeaturedComics();
+    }
+
+
 
 }
