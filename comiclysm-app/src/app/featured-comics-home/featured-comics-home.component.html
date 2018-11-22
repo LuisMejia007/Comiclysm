@@ -5,6 +5,7 @@
   </div>
   <div class = "featuredComicsList">
     <div class = "featuredComicsCard" *ngFor = "let comics of featuredComics">
+        <img src = "{{comics.comicCoverImg}}">
         <p>{{comics.comicName}}</p>
     </div>
   </div>
