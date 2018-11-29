@@ -1,5 +1,7 @@
 package com.comiclysm.project.comiclysm.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,8 +20,12 @@ public class Volume {
     @Column(name = "volume_publisher_id")
     int volumePublisherId;
 
-    @Column(name = "volume_img")
-    String volumeImg;
+    @ManyToOne
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
+
+    @OneToMany(mappedBy = "volume")
+    private List<Comic> comicsByVol;
 
     public Volume() {}
 
@@ -54,11 +60,5 @@ public class Volume {
         return volumePublisherId;
     }
 
-    public String getVolumeImg() {
-        return volumeImg;
-    }
 
-    public void setVolumeImg(String volumeImg) {
-        this.volumeImg = volumeImg;
-    }
 }

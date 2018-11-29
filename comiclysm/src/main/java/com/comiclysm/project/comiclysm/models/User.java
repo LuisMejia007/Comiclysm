@@ -1,5 +1,6 @@
 package com.comiclysm.project.comiclysm.models;
 
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +18,9 @@ public class User {
     @Column(name = "user_password")
     String userPassword;
 
+
+    @OneToMany(mappedBy = "user")
+    List<Inventory> userInventories;
 
     public User() { }
 

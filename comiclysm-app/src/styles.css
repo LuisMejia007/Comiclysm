@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+html,body { 
+    margin: 0px;
+    padding: 0;
+    width:100%;
+    background-color: rgb(17, 34, 61);
+    color: white;
+}

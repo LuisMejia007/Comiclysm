@@ -1,0 +1,23 @@
+.featuredComicsHomeContainer { 
+    width: 100%;
+    margin: 0 auto;
+}
+
+.featuredComicsHeaderContainer, .featuredComicsList { 
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    float:left;
+}
+
+.featuredComicsList{ 
+    flex-wrap: wrap;
+}
+.featuredComicsCard { 
+    width: 16%;
+    display:block;
+    margin: 0 auto;
+    float:left;
+    flex-wrap: nowrap;
+    padding: 0;
+}

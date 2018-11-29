@@ -5,8 +5,7 @@ export class Comic {
     comicPublicationDate: string;
     comicCoverImg: string;
     comicVolumeName: string;
-    comicTradeId: number;
-    comicInventoryId: number;
+
 
     constructor() {}
 
@@ -34,11 +33,4 @@ export class Comic {
         return this.comicVolumeName;
     }
 
-    getComicTradeId(): number {
-        return this.comicTradeId;
-    }
-
-    getComicInventoryId(): number {
-        return this.comicInventoryId;
-    }
 }

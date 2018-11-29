@@ -26,6 +26,6 @@ export class ComiclysmService {
 
   getFeaturedComics(): Observable<Comic[]> {
     const url = 'http://localhost:8080/getFeaturedComics';
-    return this.http.get<Comic[]>(url,httpOptions);
+    return this.http.get<Comic[]>(url, httpOptions);
   }
 }

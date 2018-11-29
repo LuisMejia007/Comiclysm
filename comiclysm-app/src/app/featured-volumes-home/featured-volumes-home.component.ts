@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Comic} from '../models/Comic';
+import { ComiclysmService } from '../services/comiclysm.service';
 @Component({
   selector: 'app-featured-volumes-home',
   templateUrl: './featured-volumes-home.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedVolumesHomeComponent implements OnInit {
 
-  constructor() { }
+
+  featuredVolumes: Comic[];
+  constructor(private service: ComiclysmService) { }
 
   ngOnInit() {
+
+
   }
 
 }

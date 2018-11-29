@@ -1,3 +1,12 @@
-<p>
-  featured-volumes-home works!
-</p>
+<div class = "featuredVolumesContainer">
+  <div class = "featuredVolumesHeaderContainer">
+    <h1 class = "featuredVolumesHeader"> Featured Volumes...</h1>
+    <a class = "featuredVolumesLink"> see all</a>
+  </div>
+  <div class = "featuredVolumesList">
+    <div class = "featuredVolumeCard" *ngFor= "let volume of featuredVolumes">
+      <!-- <img alt = "{{volume.comicVolumeName}} img" src = "{{volume.comicCoverImg}}"> -->
+      <p class = "volumeTitle">{{volume.comicVolumeName}}</p>
+    </div>
+  </div>
+</div>
