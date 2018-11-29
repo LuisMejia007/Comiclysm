@@ -17,11 +17,11 @@ public class Volume {
     @Column(name = "volume_name")
     String volumeName;
 
-    @Column(name = "volume_publisher_id")
-    int volumePublisherId;
+//    @Column(name = "volume_publisher_id")
+//    int volumePublisherId;
 
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
+    @JoinColumn(name = "volume_publisher_id")
     private Publisher publisher;
 
     @OneToMany(mappedBy = "volume")
@@ -31,7 +31,7 @@ public class Volume {
 
     public Volume(String volumeName, int volumePublisherId) {
         this.volumeName = volumeName;
-        this.volumePublisherId = volumePublisherId;
+        //this.volumePublisherId = volumePublisherId;
     }
 
 
@@ -52,13 +52,13 @@ public class Volume {
     }
 
 
-    public void setVolumePublisherId(int volumePublisherId) {
-        this.volumePublisherId = volumePublisherId;
-    }
-
-    public int getVolumePublisherId() {
-        return volumePublisherId;
-    }
+//    public void setVolumePublisherId(int volumePublisherId) {
+//        this.volumePublisherId = volumePublisherId;
+//    }
+//
+//    public int getVolumePublisherId() {
+//        return volumePublisherId;
+//    }
 
 
 }

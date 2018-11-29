@@ -36,10 +36,10 @@ public class ComiclysmService {
         return this.comicRepository.findByComicName('%' + comicName + '%');
     }
 
-    public List<Comic> getComicsByVolumeName(String volumeName) {
-        volumeName = volumeName.replace("_", " ");
-        return this.comicRepository.findAllByComicVolumeNameLikeIgnoreCase('%' + volumeName + '%');
-    }
+//    public List<Comic> getComicsByVolumeName(String volumeName) {
+//        volumeName = volumeName.replace("_", " ");
+//        return this.comicRepository.findAllByComicVolumeNameLikeIgnoreCase('%' + volumeName + '%');
+//    }
 
     public List<Comic> getComicsByWriter(String comicWriter) {
         comicWriter = comicWriter.replace("_", " ");

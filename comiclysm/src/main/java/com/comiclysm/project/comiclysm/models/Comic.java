@@ -24,19 +24,19 @@ public class Comic {
     @Column(name = "comic_cover_img")
     String comicCoverImg;
 
-    @Column(name = "comic_volume_id")
-    int comicVolumeId;
-
-    @Column(name = "comic_inventory_id")
-    int comicInventoryId;
+//    @Column(name = "comic_volume_id")
+//    int comicVolumeId;
+//
+//    @Column(name = "comic_inventory_id")
+//    int comicInventoryId;
 
 
     @ManyToOne
-    @JoinColumn(name="volume_id")
+    @JoinColumn(name="comic_volume_id")
     private Volume volume;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name= "comic_inventory_id")
     private Inventory inventory;
 
     public Comic() { }
@@ -98,19 +98,19 @@ public class Comic {
         this.comicCoverImg = comicCoverImg;
     }
 
-    public int getComicVolumeId() {
-        return comicVolumeId;
-    }
-
-    public void setComicVolumeId(int comicVolumeId) {
-        this.comicVolumeId = comicVolumeId;
-    }
-
-    public int getComicInventoryId() {
-        return comicInventoryId;
-    }
-
-    public void setComicInventoryId(int comicInventoryId) {
-        this.comicInventoryId = comicInventoryId;
-    }
+//    public int getComicVolumeId() {
+//        return comicVolumeId;
+//    }
+//
+//    public void setComicVolumeId(int comicVolumeId) {
+//        this.comicVolumeId = comicVolumeId;
+//    }
+//
+//    public int getComicInventoryId() {
+//        return comicInventoryId;
+//    }
+//
+//    public void setComicInventoryId(int comicInventoryId) {
+//        this.comicInventoryId = comicInventoryId;
+//    }
 }

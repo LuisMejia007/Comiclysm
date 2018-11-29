@@ -35,13 +35,7 @@ public class ComiclysmController {
     }
 
     // Getting Comics by Volume Name
-    @CrossOrigin(origins ="http://localhost:1200")
-    @GetMapping(value="/getComicsByVol/{volume_name}")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public List<Comic> getComicsByVolumeName(@PathVariable String volume_name) {
-        return this.comiclysmService.getComicsByVolumeName(volume_name);
-    }
+
 
 
     // Getting Comics By Writer
@@ -71,6 +65,9 @@ public class ComiclysmController {
     public List<Comic> getFeaturedComics() {
         return this.comiclysmService.getFeaturedComics();
     }
+
+
+
 
 
 
