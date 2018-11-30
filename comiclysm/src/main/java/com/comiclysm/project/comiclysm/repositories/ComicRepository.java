@@ -2,6 +2,7 @@ package com.comiclysm.project.comiclysm.repositories;
 
 import com.comiclysm.project.comiclysm.models.Comic;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import java.util.List;
 
@@ -28,4 +29,6 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
    // List<Comic> findAllByComicVolumeNameLikeIgnoreCase(String comicVolumeName);
     List<Comic> findAllByComicWriterLikeIgnoreCase(String comicWriter);
     List<Comic> findAllByComicArtistLikeIgnoreCase(String comicArtist);
+
+    Page<Comic> findAll(Pageable pageable);
 }

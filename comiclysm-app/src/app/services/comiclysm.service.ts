@@ -14,6 +14,8 @@ const httpOptions = {
 })
 export class ComiclysmService {
 
+  base_url = 'http://localhost:8080/';
+
   constructor(private http: HttpClient) {
   }
 
@@ -27,5 +29,9 @@ export class ComiclysmService {
   getFeaturedComics(): Observable<Comic[]> {
     const url = 'http://localhost:8080/getFeaturedComics';
     return this.http.get<Comic[]>(url, httpOptions);
+  }
+
+  getPageOfComics(pageNum: number) {
+    return this.http.get(this.base_url + 'showComics/page=' + pageNum.toString());
   }
 }

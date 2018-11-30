@@ -1,0 +1,32 @@
+.comicListContainer { 
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.comicList {
+    list-style: none;
+}
+
+.comicList li { 
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    float: left;
+    display: block;
+}
+
+
+.paginationList { 
+    list-style: none;
+    width: 100%;
+}
+
+.paginationItems { 
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    float: left;
+    display: inline-block;
+}
+
+.paginationLink {
+    text-decoration: none;
+}

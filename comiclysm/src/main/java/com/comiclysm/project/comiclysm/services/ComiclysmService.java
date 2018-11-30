@@ -4,10 +4,12 @@ import com.comiclysm.project.comiclysm.models.Comic;
 import com.comiclysm.project.comiclysm.repositories.ComicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.awt.print.Pageable;
 import java.util.ArrayList;
@@ -56,7 +58,9 @@ public class ComiclysmService {
         return this.comicRepository.getFeaturedComics(new PageRequest(0,10, Sort.Direction.ASC, "comicName"));
     }
 
-
+   public Page<Comic> showPage(@RequestParam(defaultValue = "0") int page){
+        return this.comicRepository.findAll(new PageRequest(page, 10));
+   }
 
 
 

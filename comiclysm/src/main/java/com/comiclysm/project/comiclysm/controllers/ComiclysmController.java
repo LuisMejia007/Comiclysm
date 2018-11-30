@@ -5,6 +5,7 @@ import java.util.List;
 import com.comiclysm.project.comiclysm.models.Comic;
 import com.comiclysm.project.comiclysm.services.ComiclysmService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -70,7 +71,13 @@ public class ComiclysmController {
 
 
 
-
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value ="/showComics/page={pageNum}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Page<Comic> showComics(@PathVariable int pageNum) {
+        return this.comiclysmService.showPage(pageNum);
+    }
 
 
 }

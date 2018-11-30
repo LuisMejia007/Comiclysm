@@ -17,6 +17,7 @@ import { FeaturedHeroesHomeComponent } from './featured-heroes-home/featured-her
 import { FeaturedVolumesHomeComponent } from './featured-volumes-home/featured-volumes-home.component';
 import { FeaturedComicsHomeComponent } from './featured-comics-home/featured-comics-home.component';
 import { ComicCardComponent } from './comic-card/comic-card.component';
+import { MainComicListComponent } from './main-comic-list/main-comic-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ComicCardComponent } from './comic-card/comic-card.component';
     FeaturedHeroesHomeComponent,
     FeaturedVolumesHomeComponent,
     FeaturedComicsHomeComponent,
-    ComicCardComponent
+    ComicCardComponent,
+    MainComicListComponent
   ],
   imports: [
     BrowserModule,

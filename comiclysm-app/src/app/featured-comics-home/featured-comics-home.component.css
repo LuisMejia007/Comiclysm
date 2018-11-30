@@ -19,7 +19,7 @@
 .comicsList{ 
     list-style: none;
 }
-.featuredComicsList li { 
+.comicsList li { 
     flex-wrap: nowrap;
     margin: 0 auto;
     float: left;
