@@ -1,11 +1,11 @@
 .heroImg { 
-    height: 520px;
-    width: 380px;
+    height: 100%;
+    width: 100%;
 }
 
 .featured-heroes-home-container { 
     width: 100%;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 
 .featured-heroes-header-container { 
@@ -20,6 +20,11 @@
     margin: 0 auto;
     display: block;
     float: left;
+}
+
+.featured-hero-card {
+    height: 500px;
+    width: 100px;
 }
 
 

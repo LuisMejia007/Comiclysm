@@ -14,14 +14,19 @@
     margin: 0 auto;
     display: block;
     float:left;
+    margin-top:10%;
 }
 
 .comicsList{ 
     list-style: none;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
 }
 .comicsList li { 
     flex-wrap: nowrap;
     margin: 0 auto;
     float: left;
     display: block;
+    width: 15%;
 }
