@@ -6,3 +6,17 @@ html,body {
     background-color: rgb(17, 34, 61);
     color: white;
 }
+
+.container { 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    float:left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}

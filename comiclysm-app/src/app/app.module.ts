@@ -16,6 +16,7 @@ import { SideNavigationComponent } from './side-navigation/side-navigation.compo
 import { FeaturedHeroesHomeComponent } from './featured-heroes-home/featured-heroes-home.component';
 import { FeaturedVolumesHomeComponent } from './featured-volumes-home/featured-volumes-home.component';
 import { FeaturedComicsHomeComponent } from './featured-comics-home/featured-comics-home.component';
+import { ComicCardComponent } from './comic-card/comic-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FeaturedComicsHomeComponent } from './featured-comics-home/featured-com
     SideNavigationComponent,
     FeaturedHeroesHomeComponent,
     FeaturedVolumesHomeComponent,
-    FeaturedComicsHomeComponent
+    FeaturedComicsHomeComponent,
+    ComicCardComponent
   ],
   imports: [
     BrowserModule,

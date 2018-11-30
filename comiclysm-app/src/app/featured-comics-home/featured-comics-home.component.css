@@ -2,22 +2,26 @@
     width: 100%;
     margin: 0 auto;
 }
-
-.featuredComicsHeaderContainer, .featuredComicsList { 
+.featuredComicsHeader, .see-all-link {
+    width: 100%;
+    float: left;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.featuredComicsHeaderContainer, .featuredComicsListContainer { 
     width: 100%;
     margin: 0 auto;
     display: block;
     float:left;
 }
 
-.featuredComicsList{ 
-    flex-wrap: wrap;
+.comicsList{ 
+    list-style: none;
 }
-.featuredComicsCard { 
-    width: 16%;
-    display:block;
-    margin: 0 auto;
-    float:left;
+.featuredComicsList li { 
     flex-wrap: nowrap;
-    padding: 0;
+    margin: 0 auto;
+    float: left;
+    display: block;
 }

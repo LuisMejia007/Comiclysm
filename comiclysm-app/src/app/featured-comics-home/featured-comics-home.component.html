@@ -1,12 +1,16 @@
-<div class = "featuredComicsHomeContainer">
-  <div class = "featuredComicsHeaderContainer">
-    <h1 class = "featuredComicsHeader"> Featured Comics </h1>
-    <a> see all </a>
+<div class = "container">
+  <div class = "row">
+      <div class = "featuredComicsHeaderContainer">
+          <h1 class = "featuredComicsHeader"> Featured Comics </h1>
+          <a class = "see-all-link"> see all </a>
+        </div>
   </div>
-  <div class = "featuredComicsList">
-    <div class = "featuredComicsCard" *ngFor = "let comics of featuredComics">
-        <img src = "{{comics.comicCoverImg}}">
-        <p>{{comics.comicName}}</p>
-    </div>
+  <div class = "row">
+      <ul class = "comicsList">
+          <li *ngFor = "let comics of featuredComics">
+            <app-comic-card [comic] = "comics">
+            </app-comic-card>
+          </li>
+        </ul>
   </div>
 </div>

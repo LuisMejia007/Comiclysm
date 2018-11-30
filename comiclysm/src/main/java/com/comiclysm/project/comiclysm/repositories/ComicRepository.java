@@ -17,8 +17,11 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
     List<Comic> findByComicName(@Param("comicName") String comicName);
     /* List<Comic> findAllByComic_volume_name(String comicVolumeName); */
 
-    @Query(value = "SELECT DISTINCT c FROM Comic c")
+    @Query(value = "SELECT DISTINCT c FROM Comic c ORDER BY c.comicWriter ASC")
+   // @Query(value = "SELECT DISTINCT c FROM Comic c WHERE c.comicWriter = (SELECT DISTINCT cg.comicWriter FROM Comic cg)")
+    //@Query(value = "SELECT DISTINCT c.comicWriter FROM Comic c ORDER BY c.comicWriter")
     List<Comic> getFeaturedComics(Pageable pageable);
+
 
     List<Comic> findAllByComicNameLikeIgnoreCase(String comicName);
    // List<Comic> findComicsByVolume();
