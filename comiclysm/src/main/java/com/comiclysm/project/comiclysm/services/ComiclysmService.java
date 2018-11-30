@@ -59,7 +59,7 @@ public class ComiclysmService {
     }
 
    public Page<Comic> showPage(@RequestParam(defaultValue = "0") int page){
-        return this.comicRepository.findAll(new PageRequest(page, 10));
+        return this.comicRepository.findAll(new PageRequest(page, 30));
    }
 
 
