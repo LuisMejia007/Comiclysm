@@ -34,4 +34,25 @@ export class ComiclysmService {
   getPageOfComics(pageNum: number) {
     return this.http.get(this.base_url + 'showComics/page=' + pageNum.toString());
   }
+
+
+  getPageOfComicsByName(name: string, pageNum: number): Observable<any>   {
+    name = name.replace(' ', '');
+    return this.http.get(this.base_url + 'showComicsByName/' + name + '/page=' + pageNum.toString());
+  }
+  getPageOfComicsByWriter(writer: string, pageNum: number): Observable<any>  {
+    writer = writer.replace(' ', '');
+    return this.http.get(this.base_url + 'showComicsByWriter/' + writer + '/page=' + pageNum.toString());
+  }
+
+  getPageOfComicsByArtist(artist: string, pageNum: number): Observable<any>  {
+    artist = artist.replace(' ', '');
+    return this.http.get(this.base_url + 'showComicsByArtist/' + artist + '/page=' + pageNum.toString());
+  }
+
+  getPageOfComicsByDate(date: string, pageNum: number): Observable<any>  {
+    date = date.replace(' ', '');
+    return this.http.get(this.base_url + 'showComicsByDate/' + date + '/page=' + pageNum.toString());
+  }
+
 }

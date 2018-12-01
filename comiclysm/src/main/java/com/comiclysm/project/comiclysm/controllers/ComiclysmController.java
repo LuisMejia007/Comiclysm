@@ -80,4 +80,71 @@ public class ComiclysmController {
     }
 
 
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value ="/showComicsByName/{name}/page={pageNum}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Page<Comic> showComicsByName(@PathVariable String name, @PathVariable int pageNum) {
+        System.out.println("Filter By Comic Name: " + name);
+
+        Page<Comic> bullshit = this.comiclysmService.showPagesWithComicName(name, pageNum);
+        System.out.println("********TOTAL ELEMENTS: " + bullshit.getTotalElements());
+        System.out.println("********TOTAL Pages: " + bullshit.getTotalElements());
+        if(bullshit.getTotalElements() != 0) {
+            for(Comic comic: bullshit) {
+                System.out.println("Comic Name: "  + comic.getComicName());
+            }
+        }
+        return this.comiclysmService.showPagesWithComicName(name, pageNum);
+    }
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value ="/showComicsByWriter/{writer}/page={pageNum}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Page<Comic> showComicsByWriter(@PathVariable String writer, @PathVariable int pageNum) {
+        System.out.println("Filter By Writer: " + writer);
+        Page<Comic> bullshit = this.comiclysmService.showPagesWithComicWriter(writer, pageNum);
+        System.out.println("********TOTAL ELEMENTS: " + bullshit.getTotalElements());
+        System.out.println("********TOTAL Pages: " + bullshit.getTotalElements());
+        if(bullshit.getTotalElements() != 0) {
+            for(Comic comic: bullshit) {
+                System.out.println("Comic Name: "  + comic.getComicName());
+            }
+        }
+        return this.comiclysmService.showPagesWithComicWriter(writer, pageNum);
+    }
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value ="/showComicsByArtist/{artist}/page={pageNum}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Page<Comic> showComicsByArtist(@PathVariable String artist, @PathVariable int pageNum) {
+        System.out.println("Filter By Comic Artist: " + artist);
+        Page<Comic> bullshit = this.comiclysmService.showPagesWithComicArtist(artist, pageNum);
+        System.out.println("********TOTAL ELEMENTS: " + bullshit.getTotalElements());
+        System.out.println("********TOTAL Pages: " + bullshit.getTotalElements());
+        if(bullshit.getTotalElements() != 0) {
+            for(Comic comic: bullshit) {
+                System.out.println("Comic Name: "  + comic.getComicName());
+            }
+        }
+        return this.comiclysmService.showPagesWithComicArtist(artist, pageNum);
+    }
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value ="/showComicsByDate/{date}/page={pageNum}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Page<Comic> showComicsByDate(@PathVariable String date, @PathVariable int pageNum) {
+        Page<Comic> bullshit = this.comiclysmService.showPagesWithComicDate(date, pageNum);
+        System.out.println("********TOTAL ELEMENTS: " + bullshit.getTotalElements());
+        System.out.println("********TOTAL Pages: " + bullshit.getTotalElements());
+        if(bullshit.getTotalElements() != 0) {
+            for(Comic comic: bullshit) {
+                System.out.println("Comic Name: "  + comic.getComicName());
+            }
+        }
+        return this.comiclysmService.showPagesWithComicDate(date, pageNum);
+    }
 }

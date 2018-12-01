@@ -31,4 +31,16 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
     List<Comic> findAllByComicArtistLikeIgnoreCase(String comicArtist);
 
     Page<Comic> findAll(Pageable pageable);
+
+    @Query(value = "SELECT c FROM Comic c WHERE UPPER(c.comicName) LIKE UPPER(CONCAT('%', :myComicName, '%'))")
+    Page<Comic> getComicsByComicNameLike(@Param("myComicName") String myComicName, Pageable pageable);
+
+    @Query(value = "SELECT c FROM Comic c WHERE UPPER(c.comicWriter) LIKE UPPER(CONCAT('%', :myComicWriter, '%'))")
+    Page<Comic> findAllByComicWriter(@Param("myComicWriter") String myComicWriter, Pageable pageable);
+
+    @Query(value = "SELECT c FROM Comic c WHERE UPPER(c.comicArtist) LIKE UPPER(CONCAT('%', :myComicArtist, '%'))")
+    Page<Comic> findAllByComicArtist(@Param("myComicArtist") String myComicArtist, Pageable pageable);
+
+    @Query(value = "SELECT c FROM Comic c WHERE c.comicPublicationDate LIKE CONCAT('%', :myComicPbDate, '%')")
+    Page<Comic> findAllByComicPublicationDate(@Param("myComicPbDate") String myComicPbDate, Pageable pageable);
 }

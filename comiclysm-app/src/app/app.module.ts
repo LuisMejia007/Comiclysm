@@ -18,6 +18,7 @@ import { FeaturedVolumesHomeComponent } from './featured-volumes-home/featured-v
 import { FeaturedComicsHomeComponent } from './featured-comics-home/featured-comics-home.component';
 import { ComicCardComponent } from './comic-card/comic-card.component';
 import { MainComicListComponent } from './main-comic-list/main-comic-list.component';
+import { SideBarFilterComponent } from './side-bar-filter/side-bar-filter.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MainComicListComponent } from './main-comic-list/main-comic-list.compon
     FeaturedVolumesHomeComponent,
     FeaturedComicsHomeComponent,
     ComicCardComponent,
-    MainComicListComponent
+    MainComicListComponent,
+    SideBarFilterComponent
   ],
   imports: [
     BrowserModule,

@@ -62,7 +62,19 @@ public class ComiclysmService {
         return this.comicRepository.findAll(new PageRequest(page, 30));
    }
 
+   public Page<Comic> showPagesWithComicName(@RequestParam String name, @RequestParam(defaultValue = "0") int page) {
+        return this.comicRepository.getComicsByComicNameLike(name, new PageRequest(page, 30));
+   }
 
+   public Page<Comic> showPagesWithComicWriter(@RequestParam String writer, @RequestParam(defaultValue = "0") int page) {
+        return this.comicRepository.findAllByComicWriter(writer, new PageRequest(page, 30));
+   }
 
+   public Page<Comic> showPagesWithComicArtist(@RequestParam String artist, @RequestParam(defaultValue = "0") int page) {
+        return this.comicRepository.findAllByComicArtist(artist, new PageRequest(page, 30));
+   }
 
+    public Page<Comic> showPagesWithComicDate(@RequestParam String date, @RequestParam(defaultValue = "0") int page) {
+        return this.comicRepository.findAllByComicPublicationDate(date, new PageRequest(page, 30));
+    }
 }
