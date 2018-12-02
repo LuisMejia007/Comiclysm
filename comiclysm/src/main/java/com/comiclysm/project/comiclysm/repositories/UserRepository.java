@@ -11,4 +11,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     <S extends User> S save(S s); // Saves a user
     List<User> findAllByUserName(String userName);
     Iterable<User> findAll();
+    User findUserByUserNameAndUserPassword(String userName, String userPassword);
 }

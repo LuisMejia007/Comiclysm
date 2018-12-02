@@ -19,7 +19,7 @@ export class MainComicListComponent implements OnInit {
   ngOnInit() {
 
     console.log('Filter: ' + this.filterType);
-      this.getComics(); 
+      this.getComics();
   }
 
 

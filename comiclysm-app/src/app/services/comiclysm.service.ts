@@ -20,9 +20,15 @@ export class ComiclysmService {
   }
 
   addUser(newUser: User): Observable<User> {
-      const url = 'http://localhost:8080/login/' + newUser.getUserName() + '_' + newUser.getUserPassword();
+      const url = 'http://localhost:8080/register/' + newUser.getUserName() + '_' + newUser.getUserPassword();
       console.log(url);
       return this.http.post<User>(url, newUser, httpOptions);
+  }
+
+
+  userLogin(returningUser: User): Observable<boolean> {
+    const url = 'http://localhost:8080/login/' + returningUser.getUserName() + '_' + returningUser.getUserPassword();
+    return this.http.get<boolean>(url, httpOptions);
   }
 
 

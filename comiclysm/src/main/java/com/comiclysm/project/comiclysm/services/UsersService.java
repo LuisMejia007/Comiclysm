@@ -5,6 +5,7 @@ import com.comiclysm.project.comiclysm.repositories.UserRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
@@ -24,5 +25,20 @@ public class UsersService {
     public void addUser(User user) {
         System.out.println("User: " + user.getUserName() + " " + user.getUserPassword());
         this.userRepository.save(user);
+    }
+
+
+    public boolean userLogin(@RequestParam String userName, @RequestParam String userPassword) {
+
+        System.out.println("USER LOGIN: " + userName + " " + userPassword);
+
+        User user = this.userRepository.findUserByUserNameAndUserPassword(userName, userPassword);
+
+        // User was not found
+        if (user.equals(null)) {
+            return false;
+        } else {    // User found
+            return true;
+        }
     }
 }

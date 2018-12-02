@@ -26,11 +26,22 @@ public class UsersController {
     }
 
     @CrossOrigin(origins = "http://localhost:1200")
-    @PostMapping(value = "login/{userName}_{userPassword}")
+    @PostMapping(value = "register/{userName}_{userPassword}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     void addUser(@PathVariable String userName, @PathVariable String userPassword) {
         User user = new User(userName, userPassword);
         this.usersService.addUser(user);
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value="login/{userName}_{userPassword}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    boolean login(@PathVariable String userName, @PathVariable String userPassword) {
+        boolean userFound = this.usersService.userLogin(userName, userPassword);
+        System.out.println("User Found?:" + userFound);
+        return userFound;
     }
 }

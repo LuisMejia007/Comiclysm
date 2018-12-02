@@ -20,6 +20,7 @@ import { ComicCardComponent } from './comic-card/comic-card.component';
 import { MainComicListComponent } from './main-comic-list/main-comic-list.component';
 import { SideBarFilterComponent } from './side-bar-filter/side-bar-filter.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ComicCardComponent,
     MainComicListComponent,
     SideBarFilterComponent,
-    NavBarComponent
+    NavBarComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
