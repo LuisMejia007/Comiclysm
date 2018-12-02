@@ -12,25 +12,46 @@ export class MainComicListComponent implements OnInit {
   private comics: Array<any>;
   private pages: Array<number>;
   private filterType = 'none';
+  private query: string;
 
   constructor(private service: ComiclysmService) { }
 
   ngOnInit() {
 
     console.log('Filter: ' + this.filterType);
-    if (this.filterType === 'none') {
-      console.log('Get Comics');
-      this.getComics();
-    } else {
-      console.log('Get MORE Comics');
-      this.getMoreComics();
-    }
+      this.getComics(); 
   }
 
 
   setPage(pageNum: number, event: any ) {
     event.preventDefault();
     this.pageNum = pageNum;
+    console.log('CONSELO: ' + this.filterType);
+    switch (this.filterType) {
+      case 'none':
+      this.getComics();
+      break;
+
+      case 'name':
+      this.getComicsByName(this.query);
+      break;
+
+      case 'writer':
+      this.getComicsByWriter(this.query);
+      break;
+
+      case 'artist':
+      this.getComicsByArtist(this.query);
+      break;
+
+      case 'year':
+      this.getComicsByYear(this.query);
+      break;
+
+      default:
+      this.getComics();
+      break;
+    }
       this.getComics();
   }
 
@@ -53,12 +74,13 @@ export class MainComicListComponent implements OnInit {
           console.log(error.error.message);
       }
     );
-  
+
   }
 
 
   getComicsByName(event: any) {
     console.log('GET MORE COMICS! ' + event);
+    this.query = event;
     this.service.getPageOfComicsByName(event, this.pageNum).subscribe(
       data => {
         this.filterType = 'name';
@@ -72,7 +94,7 @@ export class MainComicListComponent implements OnInit {
   }
 
   getComicsByWriter(event: any) {
-    console.log('GET MORE COMICS! ' + event);
+    this.query = event;
     this.service.getPageOfComicsByWriter(event, this.pageNum).subscribe(
       data => {
         this.comics = data['content'];
@@ -86,7 +108,7 @@ export class MainComicListComponent implements OnInit {
   }
 
   getComicsByArtist(event: any) {
-    console.log('GET MORE COMICS! ' + event);
+    this.query = event;
     this.service.getPageOfComicsByArtist(event, this.pageNum).subscribe(
       data => {
         this.comics = data['content'];
@@ -100,7 +122,7 @@ export class MainComicListComponent implements OnInit {
   }
 
   getComicsByYear(event: any) {
-    console.log('GET MORE COMICS! ' + event);
+    this.query = event;
     this.service.getPageOfComicsByDate(event, this.pageNum).subscribe(
       data => {
         this.comics = data['content'];

@@ -1,13 +1,15 @@
 
-<app-side-bar-filter
-(filterByName) = "getComicsByName($event)"
-(filterByWriter) = "getComicsByWriter($event)"
-(filterByArtist) = "getComicsByArtist($event)"
-(filterByYear) = "getComicsByYear($event)"
->
-</app-side-bar-filter>
+        <app-side-bar-filter
+        (filterByName) = "getComicsByName($event)"
+        (filterByWriter) = "getComicsByWriter($event)"
+        (filterByArtist) = "getComicsByArtist($event)"
+        (filterByYear) = "getComicsByYear($event)"
+        >
+        </app-side-bar-filter>
 <div class = "container">
-  <div class = "row"></div>
+  <div class = "row">
+    <app-nav-bar></app-nav-bar>
+  </div>
   <div class = "row">
     <div class = "comicListContainer">
       <ul class = "comicList">
