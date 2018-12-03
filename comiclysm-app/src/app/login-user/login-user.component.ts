@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
+import { Inventory } from '../models/Inventory';
 import { ComiclysmService } from '../services/comiclysm.service';
 import { Router } from '@angular/router';
 
@@ -15,6 +16,7 @@ export class LoginUserComponent implements OnInit {
   userName: string;
   userPassword: string;
   loggedUser: User = new User();
+  userInventories: Inventory[] = [];
 
   ngOnInit() {
   }
@@ -36,8 +38,22 @@ export class LoginUserComponent implements OnInit {
           this.loggedUser.setUserName(l_user.userName);
           this.loggedUser.setUserId(l_user.userId);
           this.saveToLocalStorage();
+          this.saveInventoryToLocalStorage();
       }
+    });
 
+
+
+
+  }
+
+  saveInventoryToLocalStorage() {
+    this.service
+    .getMyInventoriesByUserId(this.loggedUser.userId)
+    .subscribe(inventories => {
+      this.userInventories = inventories;
+      localStorage.setItem('LoggedUserInventories', JSON.stringify(this.userInventories));
+      this.router.navigate(['/home']);
     });
   }
 
@@ -45,6 +61,5 @@ export class LoginUserComponent implements OnInit {
   saveToLocalStorage() {
     console.log('Logged User: ' + this.loggedUser.getUserName() + ' ' + this.loggedUser.getUserId());
     localStorage.setItem('LoggedUser', JSON.stringify(this.loggedUser));
-    this.router.navigate(['/home']);
   }
 }

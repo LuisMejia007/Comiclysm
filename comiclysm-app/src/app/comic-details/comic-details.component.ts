@@ -23,4 +23,9 @@ export class ComicDetailsComponent implements OnInit {
     this.service.getAComicByName(comicBookName).subscribe(comicBook => this.comic = comicBook);
   }
 
+
+  addComicToInventory() {
+      
+  }
+
 }

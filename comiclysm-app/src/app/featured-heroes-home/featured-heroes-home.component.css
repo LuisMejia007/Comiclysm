@@ -25,6 +25,7 @@
 .featured-hero-card {
     height: 500px;
     width: 100px;
+    box-shadow: 1px 2px 2px black;
 }
 
 
@@ -34,16 +35,21 @@
     margin: 0 auto;
     flex-wrap: nowrap;
     float:left;
+    background-color: black;
 }
 
 .featured-hero-card { 
     display: block;
-    width: 33.33%;
+    width: 20%;
     margin: 0px;
     float: left;
+    border-bottom: 1px solid black;
 }
 
 .featured-hero-name { 
     width: 100%;
     display: block;
+    text-align: center;  
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 22px;
 }

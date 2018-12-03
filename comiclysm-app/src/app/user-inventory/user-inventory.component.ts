@@ -33,13 +33,17 @@ export class UserInventoryComponent implements OnInit {
     this.newInventory.setInventoryUserId(this.inventoryUserId);
     this.service.addInventoryService(this.newInventory).subscribe();
     this.addAnInventory = false;
+    this.getMyInventories();
   }
 
   getMyInventories() {
     this.service
     .getMyInventoriesByUserId(this.inventoryUserId)
-    .subscribe(inventories => this.inventoryList = inventories);
-
+    .subscribe(inventories => {
+      this.inventoryList = inventories;
+      localStorage.removeItem('LoggedUserInventories');
+      localStorage.setItem('LoggedUserInventories', JSON.stringify(this.inventoryList));
+    });
   }
 
 }

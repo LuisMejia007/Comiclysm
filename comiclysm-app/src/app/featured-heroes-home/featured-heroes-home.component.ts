@@ -17,8 +17,10 @@ export class FeaturedHeroesHomeComponent implements OnInit {
 
   ngOnInit() {
     this.featuredHeroes[0] = HEROES[0];
-    this.featuredHeroes[1] = HEROES[1];
     this.featuredHeroes[2] = HEROES[2];
+    this.featuredHeroes[1] = HEROES[1];
+    this.featuredHeroes[3] = HEROES[3];
+    this.featuredHeroes[4] = HEROES[4];
   }
 
 }
