@@ -8,9 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
+
 @Controller
+
 public class ComiclysmController {
 
     @Autowired
@@ -64,6 +69,7 @@ public class ComiclysmController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Comic> getFeaturedComics() {
+
         return this.comiclysmService.getFeaturedComics();
     }
 

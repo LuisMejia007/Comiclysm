@@ -28,17 +28,10 @@ public class UsersService {
     }
 
 
-    public boolean userLogin(@RequestParam String userName, @RequestParam String userPassword) {
+    public User userLogin(@RequestParam String userName, @RequestParam String userPassword) {
 
         System.out.println("USER LOGIN: " + userName + " " + userPassword);
-
         User user = this.userRepository.findUserByUserNameAndUserPassword(userName, userPassword);
-
-        // User was not found
-        if (user.equals(null)) {
-            return false;
-        } else {    // User found
-            return true;
-        }
+        return user;
     }
 }

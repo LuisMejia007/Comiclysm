@@ -10,32 +10,41 @@ import { Router } from '@angular/router';
 })
 export class LoginUserComponent implements OnInit {
 
+  constructor(private service: ComiclysmService, private router: Router) { }
   user: User = new User();
   userName: string;
   userPassword: string;
-  loginSuccessful: boolean;
-
-  constructor(private service: ComiclysmService, private router: Router) { }
+  loggedUser: User = new User();
 
   ngOnInit() {
   }
 
   userLogin(userName: string , userPassword: string) {
 
-    this.user.setUserName(userName); this.user.setUserPassword(userPassword);
-    console.log('USers: ' + this.user.getUserName() + ' ' + this.user.getUserPassword());
-    this.service.userLogin(this.user).subscribe(data => {
-      console.log('Value Returned by REST:' + data);
-      this.loginSuccessful = data;
-      console.log('Login: ' + this.loginSuccessful);
-    });
+    this.user.setUserName(userName);
+    this.user.setUserPassword(userPassword);
+    console.log('Users: ' + this.user.getUserName() + ' ' + this.user.getUserPassword());
 
-    if (this.loginSuccessful === false) {
-      alert('User not found! Please make sure to type in correct User Name and/or Password.');
-      this.router.navigate(['/login']);
-    } else {
-      this.router.navigate(['/home']);
-    }
+    this.service
+    .userLogin(this.user)
+    .subscribe(l_user => {
+      if (l_user === null) {
+          alert('User not found! Please make sure to type in correct User Name and/or Password.');
+          this.router.navigate(['/login']);
+      } else {
+          console.log('Observable User: ' + l_user.userName + ' ' + l_user.userId);
+          this.loggedUser.setUserName(l_user.userName);
+          this.loggedUser.setUserId(l_user.userId);
+          this.saveToLocalStorage();
+      }
+
+    });
   }
 
+
+  saveToLocalStorage() {
+    console.log('Logged User: ' + this.loggedUser.getUserName() + ' ' + this.loggedUser.getUserId());
+    localStorage.setItem('LoggedUser', JSON.stringify(this.loggedUser));
+    this.router.navigate(['/home']);
+  }
 }

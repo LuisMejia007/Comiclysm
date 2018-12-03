@@ -7,11 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
+@SessionAttributes({"username"})
 public class UsersController {
 
     @Autowired
@@ -39,9 +42,8 @@ public class UsersController {
     @GetMapping(value="login/{userName}_{userPassword}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    boolean login(@PathVariable String userName, @PathVariable String userPassword) {
-        boolean userFound = this.usersService.userLogin(userName, userPassword);
-        System.out.println("User Found?:" + userFound);
-        return userFound;
+    User login(@PathVariable String userName, @PathVariable String userPassword, ModelMap model, HttpSession httpSession) {
+        User user = this.usersService.userLogin(userName, userPassword);
+        return user;
     }
 }

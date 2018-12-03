@@ -26,9 +26,9 @@ export class ComiclysmService {
   }
 
 
-  userLogin(returningUser: User): Observable<boolean> {
+  userLogin(returningUser: User): Observable<User> {
     const url = 'http://localhost:8080/login/' + returningUser.getUserName() + '_' + returningUser.getUserPassword();
-    return this.http.get<boolean>(url, httpOptions);
+    return this.http.get<User>(url, httpOptions);
   }
 
 
