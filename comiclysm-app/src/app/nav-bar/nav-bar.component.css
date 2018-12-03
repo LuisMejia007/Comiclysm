@@ -3,17 +3,33 @@
     height: 50px;
     background-color:rgb(33, 31, 173);
     display: block;
-    float: left;
-    margin-bottom: 50px;
+    margin: 0px auto 50px auto;
     position: fixed;
+    top: 0;
 }
 
 .navBar {
-    float:right;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+.navBarHeader {
+    width: 10%;
+    display: block;
+    margin: 5px auto;
+    float: left;
 }
 
 .navLinks {
     list-style: none;
+    width: 80%;
+    margin: 5px auto;
+    display: block;
+    float: left;
+}
+
+.navLinks li {
+    display: inline-block;
+    margin: 5px 10px;
 }
 .navLinks li a {
     text-decoration: none;

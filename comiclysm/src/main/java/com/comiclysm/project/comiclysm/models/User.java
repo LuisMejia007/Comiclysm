@@ -19,8 +19,8 @@ public class User {
     String userPassword;
 
 
-    @OneToMany(mappedBy = "user")
-    List<Inventory> userInventories;
+//    @OneToMany(mappedBy = "user")
+//    List<Inventory> userInventories;
 
     public User() { }
 

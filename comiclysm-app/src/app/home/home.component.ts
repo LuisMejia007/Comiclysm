@@ -9,7 +9,7 @@ import { User } from '../models/User';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-  user: string;
+  user: User;
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('LoggedUser'));
   }

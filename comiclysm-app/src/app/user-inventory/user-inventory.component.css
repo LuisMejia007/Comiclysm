@@ -1,0 +1,20 @@
+.inventoryLandingContainer {
+    margin: 50px auto 10px auto;
+    display: block;
+    width: 100%;
+}
+.inventoryContainer,.inventoryControlsContainer {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.inventoryContainer {
+    height: 200px;
+    background-color: gray;
+}
+
+.inventoryLandingHeader { 
+    font-size: 16px;
+    text-align: center;
+}

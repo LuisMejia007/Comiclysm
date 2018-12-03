@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { FeaturedHeroesComponent } from './featured-heroes/featured-heroes.component';
 import {MainComicListComponent} from './main-comic-list/main-comic-list.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { UserInventoryComponent } from './user-inventory/user-inventory.component';
+import { TradeComponent } from './trade/trade.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginUserComponent},
   { path: 'register', component: RegisterUserComponentComponent},
   { path: 'home', component: HomeComponent},
+  { path: 'inventory', component: UserInventoryComponent},
+  { path: 'trade', component: TradeComponent},
   { path: 'seeAllFeaturedHeroes', component: FeaturedHeroesComponent},
   { path: 'showComics', component: MainComicListComponent}
 ];

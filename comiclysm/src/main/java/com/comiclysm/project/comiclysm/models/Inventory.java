@@ -16,22 +16,22 @@ public class Inventory {
     @Column(name = "inventory_name")
     String inventoryName;
 
-//    @Column(name = "inventory_user_id")
-//    int inventoryUserId;
+    @Column(name = "inventory_user_id")
+    int inventoryUserId;
 
 
-    @ManyToOne
-    @JoinColumn(name = "inventory_user_id")
-    private User user;
-
-    @OneToMany(mappedBy = "inventory")
-    private List<Comic> comicsInInventory;
+//    @ManyToOne
+//    @JoinColumn(name = "inventory_user_id")
+//    private User user;
+//
+//    @OneToMany(mappedBy = "inventory")
+//    private List<Comic> comicsInInventory;
 
     public Inventory() {}
 
     public Inventory(String inventoryName, int inventoryUserId) {
         this.inventoryName = inventoryName;
-//        this.inventoryUserId = inventoryUserId;
+        this.inventoryUserId = inventoryUserId;
     }
 
 
@@ -51,11 +51,11 @@ public class Inventory {
         this.inventoryName = inventoryName;
     }
 
-//    public int getInventoryUserId() {
-//        return inventoryUserId;
-//    }
-//
-//    public void setInventoryUserId(int inventoryUserId) {
-//        this.inventoryUserId = inventoryUserId;
-//    }
+    public int getInventoryUserId() {
+        return inventoryUserId;
+    }
+
+    public void setInventoryUserId(int inventoryUserId) {
+        this.inventoryUserId = inventoryUserId;
+    }
 }

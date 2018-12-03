@@ -4,6 +4,7 @@ import { User } from '../models/User';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Comic } from '../models/Comic';
+import {Inventory} from '../models/Inventory';
 
 const httpOptions = {
   headers: new HttpHeaders({'string-type': 'application/json'})
@@ -19,6 +20,7 @@ export class ComiclysmService {
   constructor(private http: HttpClient) {
   }
 
+  /*** User Login Services ****/
   addUser(newUser: User): Observable<User> {
       const url = 'http://localhost:8080/register/' + newUser.getUserName() + '_' + newUser.getUserPassword();
       console.log(url);
@@ -32,6 +34,7 @@ export class ComiclysmService {
   }
 
 
+  /*** Comic Services (GET) ***/
   getFeaturedComics(): Observable<Comic[]> {
     const url = 'http://localhost:8080/getFeaturedComics';
     return this.http.get<Comic[]>(url, httpOptions);
@@ -59,6 +62,14 @@ export class ComiclysmService {
   getPageOfComicsByDate(date: string, pageNum: number): Observable<any>  {
     date = date.replace(' ', '');
     return this.http.get(this.base_url + 'showComicsByDate/' + date + '/page=' + pageNum.toString());
+  }
+
+
+  /*** Inventory Services ***/
+  addInventoryService(inventory: Inventory): Observable<Inventory> {
+    const url = 'addInventory/' + inventory.getInventoryName() + '_' + inventory.getInventoryUserId().toString();
+    console.log('Called Service:' + inventory.getInventoryName() + ' ' + inventory.getInventoryUserId());
+    return this.http.post<Inventory>(this.base_url + url, inventory, httpOptions);
   }
 
 }

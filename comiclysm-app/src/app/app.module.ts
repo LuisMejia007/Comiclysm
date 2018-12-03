@@ -21,6 +21,8 @@ import { MainComicListComponent } from './main-comic-list/main-comic-list.compon
 import { SideBarFilterComponent } from './side-bar-filter/side-bar-filter.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { UserInventoryComponent } from './user-inventory/user-inventory.component';
+import { TradeComponent } from './trade/trade.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { LoginUserComponent } from './login-user/login-user.component';
     MainComicListComponent,
     SideBarFilterComponent,
     NavBarComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    UserInventoryComponent,
+    TradeComponent
   ],
   imports: [
     BrowserModule,
