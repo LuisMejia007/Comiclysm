@@ -9,9 +9,12 @@ import {Comic} from '../models/Comic';
 export class ComicCardComponent implements OnInit {
 
  @Input() comic: Comic;
+ comicName: string;
   constructor() { }
 
   ngOnInit() {
+    this.comicName = this.comic.comicName.replace(' ', '_');
+    this.comicName = this.comicName.replace('#', '_');
   }
 
 }

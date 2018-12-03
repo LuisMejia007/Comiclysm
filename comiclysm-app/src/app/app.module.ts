@@ -23,6 +23,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { UserInventoryComponent } from './user-inventory/user-inventory.component';
 import { TradeComponent } from './trade/trade.component';
+import { ComicDetailsComponent } from './comic-details/comic-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TradeComponent } from './trade/trade.component';
     NavBarComponent,
     LoginUserComponent,
     UserInventoryComponent,
-    TradeComponent
+    TradeComponent,
+    ComicDetailsComponent
   ],
   imports: [
     BrowserModule,

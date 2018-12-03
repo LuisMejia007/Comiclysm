@@ -10,8 +10,8 @@
       <div class = "inventoryContainer">
         <div class = "inventoryListContainer">
           <ul class = "inventoryList">
-            <div  *ngIf = "inventoryList.length !== 0" class = "inventoryListItem">
-              <li *ngFor = "let inventory of inventoryList"> </li>
+            <div  *ngIf = "inventoryList.length > 0" class = "inventoryListItem">
+              <li *ngFor = "let inventory of inventoryList"> {{inventory.inventoryName}} </li>
             </div>
           </ul>
         </div>

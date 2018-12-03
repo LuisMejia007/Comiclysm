@@ -8,6 +8,7 @@ import {MainComicListComponent} from './main-comic-list/main-comic-list.componen
 import { LoginUserComponent } from './login-user/login-user.component';
 import { UserInventoryComponent } from './user-inventory/user-inventory.component';
 import { TradeComponent } from './trade/trade.component';
+import { ComicDetailsComponent } from './comic-details/comic-details.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'inventory', component: UserInventoryComponent},
   { path: 'trade', component: TradeComponent},
   { path: 'seeAllFeaturedHeroes', component: FeaturedHeroesComponent},
-  { path: 'showComics', component: MainComicListComponent}
+  { path: 'showComics', component: MainComicListComponent},
+  { path: 'comic/:name', component: ComicDetailsComponent}
 ];
 @NgModule({
   imports: [

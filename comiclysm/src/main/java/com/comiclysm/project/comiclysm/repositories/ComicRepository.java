@@ -43,4 +43,7 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
 
     @Query(value = "SELECT c FROM Comic c WHERE c.comicPublicationDate LIKE CONCAT('%', :myComicPbDate, '%')")
     Page<Comic> findAllByComicPublicationDate(@Param("myComicPbDate") String myComicPbDate, Pageable pageable);
+
+    @Query(value = "SELECT c FROM Comic c WHERE c.comicName LIKE CONCAT('%', :myComicName, '%')")
+    Comic findComicByComicName(@Param("myComicName") String myComicName);
 }

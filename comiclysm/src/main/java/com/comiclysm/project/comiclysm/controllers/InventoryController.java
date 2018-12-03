@@ -23,6 +23,14 @@ public class InventoryController {
     }
 
 
-   // public List<Inventory>
-    
+
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value = "getMyInventories/{inventoryUserId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Inventory> getMyInventories(@PathVariable int inventoryUserId) {
+        return this.inventoryService.getInventoriesByUserId(inventoryUserId);
+    }
+
+
 }

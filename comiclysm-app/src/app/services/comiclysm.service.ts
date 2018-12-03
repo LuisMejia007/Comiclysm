@@ -64,12 +64,22 @@ export class ComiclysmService {
     return this.http.get(this.base_url + 'showComicsByDate/' + date + '/page=' + pageNum.toString());
   }
 
+  getAComicByName(comicName: string): Observable<any> {
+    comicName = comicName.replace(' ', '_');
+    comicName = comicName.replace('#', '_');
+    return this.http.get(this.base_url + 'comicDetails/' + comicName);
+  }
 
   /*** Inventory Services ***/
   addInventoryService(inventory: Inventory): Observable<Inventory> {
     const url = 'addInventory/' + inventory.getInventoryName() + '_' + inventory.getInventoryUserId().toString();
     console.log('Called Service:' + inventory.getInventoryName() + ' ' + inventory.getInventoryUserId());
     return this.http.post<Inventory>(this.base_url + url, inventory, httpOptions);
+  }
+
+  getMyInventoriesByUserId(userId: number): Observable<Inventory[]> {
+    const url = 'getMyInventories/' + userId.toString();
+    return this.http.get<Inventory[]>(this.base_url + url, httpOptions);
   }
 
 }

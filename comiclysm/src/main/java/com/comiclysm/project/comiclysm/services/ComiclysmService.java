@@ -77,4 +77,9 @@ public class ComiclysmService {
     public Page<Comic> showPagesWithComicDate(@RequestParam String date, @RequestParam(defaultValue = "0") int page) {
         return this.comicRepository.findAllByComicPublicationDate(date, new PageRequest(page, 30));
     }
+
+
+    public Comic getAComicBook(@RequestParam String comicName) {
+        return this.comicRepository.findComicByComicName(comicName);
+    }
 }

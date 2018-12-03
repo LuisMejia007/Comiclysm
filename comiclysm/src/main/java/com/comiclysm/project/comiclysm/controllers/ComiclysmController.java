@@ -21,6 +21,17 @@ public class ComiclysmController {
     @Autowired
     ComiclysmService comiclysmService;
 
+
+    // Get A Comic
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value = "/comicDetails/{comic_name}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Comic getAComicBook(@PathVariable String comic_name) {
+        return this.comiclysmService.getAComicBook(comic_name);
+    }
+
+
     // Getting all Comics
     @CrossOrigin(origins = "http://localhost:1200")
     @GetMapping(value = "/getComics")
@@ -69,12 +80,8 @@ public class ComiclysmController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Comic> getFeaturedComics() {
-
         return this.comiclysmService.getFeaturedComics();
     }
-
-
-
 
 
     @CrossOrigin(origins = "http://localhost:1200")

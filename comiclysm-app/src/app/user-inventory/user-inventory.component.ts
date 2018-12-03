@@ -24,6 +24,8 @@ export class UserInventoryComponent implements OnInit {
     this.inventoryOwner = JSON.parse(localStorage.getItem('LoggedUser'));
     this.inventoryOwnerName = this.inventoryOwner.userName;
     this.inventoryUserId = this.inventoryOwner.userId;
+
+    this.getMyInventories();
   }
 
   addInventory(inventoryName: string) {
@@ -32,4 +34,12 @@ export class UserInventoryComponent implements OnInit {
     this.service.addInventoryService(this.newInventory).subscribe();
     this.addAnInventory = false;
   }
+
+  getMyInventories() {
+    this.service
+    .getMyInventoriesByUserId(this.inventoryUserId)
+    .subscribe(inventories => this.inventoryList = inventories);
+
+  }
+
 }
