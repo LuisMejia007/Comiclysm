@@ -11,7 +11,10 @@
         <div class = "inventoryListContainer">
           <ul class = "inventoryList">
             <div  *ngIf = "inventoryList.length > 0" class = "inventoryListItem">
-              <li *ngFor = "let inventory of inventoryList"> {{inventory.inventoryName}} </li>
+              <li *ngFor = "let inventory of inventoryList"> 
+                  {{inventory.inventoryName}} 
+                <button class = "checkInventoryButton" (click) = "checkOutInventory(inventory.inventoryName, inventory.inventoryId)"> Check Inventory </button>
+              </li>
             </div>
           </ul>
         </div>

@@ -170,4 +170,15 @@ public class ComiclysmController {
     public void addComicToInventory(@PathVariable int inventoryId, @PathVariable int comicId){
         this.comiclysmService.updateComicInventoryId(comicId, inventoryId);
     }
+
+
+
+    // Getting Comics From a User's Inventory
+    @CrossOrigin(origins = "http://localhost:1200")
+    @GetMapping(value = "/getComicsFromInventory/inventory={inventoryId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getComicsFromInventory(@PathVariable int inventoryId){
+        return this.comiclysmService.getComicsFromInventory(inventoryId);
+    }
 }

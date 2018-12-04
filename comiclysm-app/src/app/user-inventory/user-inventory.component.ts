@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Inventory} from '../models/Inventory';
 import {User} from '../models/User';
 import { ComiclysmService } from '../services/comiclysm.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-inventory',
@@ -10,7 +11,7 @@ import { ComiclysmService } from '../services/comiclysm.service';
 })
 export class UserInventoryComponent implements OnInit {
 
-  constructor(private service: ComiclysmService) { }
+  constructor(private service: ComiclysmService, private router: Router) { }
 
   inventoryList: Inventory[] = [];
   newInventory: Inventory = new Inventory();
@@ -44,6 +45,12 @@ export class UserInventoryComponent implements OnInit {
       localStorage.removeItem('LoggedUserInventories');
       localStorage.setItem('LoggedUserInventories', JSON.stringify(this.inventoryList));
     });
+  }
+
+
+  checkOutInventory(inventoryName: string, inventoryId: number) {
+    console.log('Inventory Id CLicked: ' + inventoryId + ' ' + inventoryName);
+    this.router.navigate(['inventoryDetails' + '/' + inventoryName + '/' + inventoryId]);
   }
 
 }

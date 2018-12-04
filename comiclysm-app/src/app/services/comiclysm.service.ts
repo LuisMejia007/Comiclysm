@@ -88,4 +88,10 @@ export class ComiclysmService {
      return this.http.put(url, httpOptions);
   }
 
+
+  getComicsFromInventory(inventoryId: number ): Observable<Comic[]> {
+    const url = this.base_url + 'getComicsFromInventory/inventory=' + inventoryId;
+    return this.http.get<Comic[]>(url, httpOptions);
+  }
+
 }

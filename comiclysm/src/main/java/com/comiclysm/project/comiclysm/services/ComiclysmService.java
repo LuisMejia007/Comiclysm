@@ -94,4 +94,8 @@ public class ComiclysmService {
         }
     }
 
+    public List<Comic> getComicsFromInventory(@RequestParam int comicInventoryId){
+        return this.comicRepository.getComicsFromInventory(comicInventoryId);
+    }
+
 }

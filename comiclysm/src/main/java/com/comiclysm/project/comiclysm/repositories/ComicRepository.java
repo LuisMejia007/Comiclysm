@@ -56,5 +56,7 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
     @Query(value = "UPDATE Comic c SET c.comicInventoryId = :userInventoryId WHERE c.comicId = :comicId")
     int updateComicInventoryId(@Param("comicId") int comicId, @Param("userInventoryId") Integer userInventoryId);
 
+    @Query(value = "SELECT c FROM Comic c WHERE c.comicInventoryId = :inventoryId")
+    List<Comic> getComicsFromInventory(@Param("inventoryId") Integer inventoryId);
 
 }

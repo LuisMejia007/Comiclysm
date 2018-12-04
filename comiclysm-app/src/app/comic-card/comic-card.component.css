@@ -4,6 +4,7 @@
     width: 100%;
     margin: 0 auto; 
     margin: 0 15px;
+    box-shadow: 1px 1px 2px black;
 }
 .comic-img-container, .comic-name-container{ 
     display: block;
@@ -21,4 +22,12 @@
 .comic-img { 
     width: 150px;
     height: 230px;
+    margin: 5px 10% 0px 10%;
+    box-shadow: 1px 1px 2px black;
+}
+
+.comic-card-container:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 10px black;
+    transition: box-shadow ease 1s;
 }

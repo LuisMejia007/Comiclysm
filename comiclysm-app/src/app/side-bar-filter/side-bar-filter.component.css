@@ -1,14 +1,15 @@
 .sideBarContainer { 
     width: 15%;
-    height: 2000px;
+    height: 100% !important;
     background-color:black;
     display: block;
     float: left;
-    z-index: 1;
-    position: absolute;
+    position: fixed;
 }
 
-
+.sideBarFiltersContainer{
+    margin-top: 150px;
+}
 button {
     background-color: white;
 }

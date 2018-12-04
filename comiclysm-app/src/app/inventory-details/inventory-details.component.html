@@ -1,3 +1,13 @@
-<p>
-  inventory-details works!
-</p>
+
+<app-nav-bar></app-nav-bar>
+<div class = "comicListContainer">
+  <div class = "inventoryHeaderContainer">
+      <h1 class = "inventoryHeader">
+          {{inventoryName}} </h1>
+  </div>
+  <ul class = "comicList">
+    <li *ngFor = "let comic of listOfComics">
+      <app-comic-card [comic] = "comic"></app-comic-card> 
+    </li>
+  </ul>
+</div>
