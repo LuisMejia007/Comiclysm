@@ -1,0 +1,30 @@
+.comicBookContainer{ 
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 5px 10px #888888;
+    border: 1px solid black;
+    height: 800px;
+    margin-top: 50px;
+}
+
+.comicImgContainer, .comicNameContainer, .comicWriterContainer, 
+.comicArtistContainer, .comicPublicationDateContainer, .addToInventoryButtonContainer, 
+.inventoryListContainer {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.comicImgContainer {
+    background-color: black;
+}
+
+
+.inventoryList{ 
+    list-style: none;
+}
+
+.addButton{
+    background-color: green;
+    color: white;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Comic } from '../models/Comic';
 import { ActivatedRoute } from '@angular/router';
 import { ComiclysmService } from '../services/comiclysm.service';
+import { Inventory } from '../models/Inventory';
 
 @Component({
   selector: 'app-comic-details',
@@ -13,6 +14,11 @@ export class ComicDetailsComponent implements OnInit {
   constructor(private service: ComiclysmService,
     private route: ActivatedRoute) { }
   comic: Comic;
+  userInventories: Inventory[] = [];
+  displayInventories = false;
+  comicBookName = '';
+  userInventoryId: number;
+
   ngOnInit() {
     this.getComicBook();
   }
@@ -23,9 +29,25 @@ export class ComicDetailsComponent implements OnInit {
     this.service.getAComicByName(comicBookName).subscribe(comicBook => this.comic = comicBook);
   }
 
+  toggleInventoriesToDisplay() {
+    this.displayInventories = !this.displayInventories;
+    if (this.displayInventories === true) {
+      this.displayUserInventories();
+    }
+  }
 
-  addComicToInventory() {
-      
+  displayUserInventories() {
+     this.userInventories = JSON.parse(localStorage.getItem('LoggedUserInventories'));
+  }
+
+  addComicToInventory(inventoryId: number) {
+    console.log('Add ' + this.comic.comicId + ' to ' + inventoryId);
+    console.log('After Replacement:' + this.comicBookName);
+    this.service.addComicToInventory(this.comic.comicId, inventoryId).subscribe( data => {
+      if (data === false) {
+        console.log('Failed To update inventory');
+      }
+    });
   }
 
 }

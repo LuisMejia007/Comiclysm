@@ -1,4 +1,5 @@
 export class Comic {
+    comicId: number;
     comicName: string;
     comicWriter: string;
     comicArtist: string;
@@ -31,6 +32,10 @@ export class Comic {
 
     getComicVolumeName(): string {
         return this.comicVolumeName;
+    }
+
+    getComicId(): number {
+        return this.comicId;
     }
 
 }

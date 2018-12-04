@@ -160,4 +160,14 @@ public class ComiclysmController {
         }
         return this.comiclysmService.showPagesWithComicDate(date, pageNum);
     }
+
+
+    // Updating a Comic's Inventory Id:
+    @CrossOrigin(origins = "http://localhost:1200")
+    @PutMapping(value = "/addComicToInventory/{inventoryId}/{comicId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void addComicToInventory(@PathVariable int inventoryId, @PathVariable int comicId){
+        this.comiclysmService.updateComicInventoryId(comicId, inventoryId);
+    }
 }

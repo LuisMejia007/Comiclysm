@@ -82,4 +82,10 @@ export class ComiclysmService {
     return this.http.get<Inventory[]>(this.base_url + url, httpOptions);
   }
 
+
+  addComicToInventory(comicId: number, userInventoryId: number): Observable<any> {
+    const url = this.base_url + 'addComicToInventory/' + userInventoryId + '/' + comicId;
+     return this.http.put(url, httpOptions);
+  }
+
 }

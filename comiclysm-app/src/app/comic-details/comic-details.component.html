@@ -1,6 +1,6 @@
 
 
-
+<app-nav-bar></app-nav-bar>
 <div class = "comicBookContainer">
     <div class = "container">
       <div class = "row">
@@ -30,7 +30,17 @@
       </div>
       <div class = "row">
         <div class = "addToInventoryButtonContainer">
-          <h2 class = "addToInventoryButton"> Add To Inventory + </h2>
+          <h2 class = "addToInventoryButton" (click) = "toggleInventoriesToDisplay()"> Add To Inventory + </h2>
+        </div>
+      </div>
+      <div class = "rows">
+        <div class = "inventoryListContainer">
+          <ul *ngIf = "displayInventories == true" class = "inventoryList">
+            <li *ngFor = "let inventory of userInventories"> 
+              {{inventory.inventoryName}}
+              <button class = "addButton" (click) = "addComicToInventory(inventory.inventoryId)"> Add +</button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

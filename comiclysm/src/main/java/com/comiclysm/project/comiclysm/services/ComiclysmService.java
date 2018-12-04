@@ -82,4 +82,16 @@ public class ComiclysmService {
     public Comic getAComicBook(@RequestParam String comicName) {
         return this.comicRepository.findComicByComicName(comicName);
     }
+
+    public boolean updateComicInventoryId(@RequestParam int comicId, @RequestParam int userInventoryId){
+        System.out.println("Comic:" + comicId + " " + " Inventory: " + userInventoryId);
+        int c = this.comicRepository.updateComicInventoryId(comicId, userInventoryId);
+        System.out.println("C: " + c);
+        if(c == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
