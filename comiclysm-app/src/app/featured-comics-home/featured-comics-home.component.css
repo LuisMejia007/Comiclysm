@@ -25,7 +25,7 @@
 }
 .comicsList li { 
     flex-wrap: nowrap;
-    margin: 0 auto;
+    margin: 5px;
     float: left;
     display: block;
     width: 15%;

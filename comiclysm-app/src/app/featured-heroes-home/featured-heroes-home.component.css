@@ -16,10 +16,11 @@
 }
 
 .featured-heroes-header, .see-all-link { 
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     display: block;
     float: left;
+    text-align: center;
 }
 
 .featured-hero-card {
