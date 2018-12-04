@@ -3,10 +3,11 @@
   <nav class = "navBar">
     <h1 class = "navBarHeader"> Comiclysm </h1>
     <ul class = "navLinks">
-      <li> <a routerLink="/home">Home</a></li>
-      <li> <a routerLink="/inventory"> Inventory </a> </li>
-      <li> <a routerLink="/trade"> Trade </a>
-      <li> <a (click) = "logOut()"> Log Out </a></li>
+      <li class = "navLinkItem"> <a class = "navLink" routerLink="/home">Home</a></li>
+      <li class = "navLinkItem"><a class = "navLink" routerLink ="/showComics">Comics</a></li>
+      <li class = "navLinkItem"> <a class = "navLink" routerLink="/inventory"> Inventory </a> </li>
+      <li class = "navLinkItem"> <a class = "navLink"routerLink="/trade"> Trade </a>
+      <li class = "navLinkItem"> <a class = "logoutButton" (click) = "logOut()"> Log Out </a></li>
     </ul>
   </nav>
 </div>

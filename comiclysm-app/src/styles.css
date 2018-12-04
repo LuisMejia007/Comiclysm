@@ -4,8 +4,8 @@ html,body {
     padding: 0;
     width:100%;
     background-color: rgb(255, 255, 255);
-    color: rgb(69, 134, 233);
-    font-family: Verdana, Geneva, sans-serif;
+    color: rgb(0, 0, 0);
+    font-family: 'Russo One', sans-serif;
 }
 
 .container { 
