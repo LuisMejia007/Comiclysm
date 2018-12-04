@@ -24,6 +24,7 @@ import { LoginUserComponent } from './login-user/login-user.component';
 import { UserInventoryComponent } from './user-inventory/user-inventory.component';
 import { TradeComponent } from './trade/trade.component';
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
+import { InventoryDetailsComponent } from './inventory-details/inventory-details.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ComicDetailsComponent } from './comic-details/comic-details.component';
     LoginUserComponent,
     UserInventoryComponent,
     TradeComponent,
-    ComicDetailsComponent
+    ComicDetailsComponent,
+    InventoryDetailsComponent
   ],
   imports: [
     BrowserModule,
