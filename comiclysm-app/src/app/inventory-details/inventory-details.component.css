@@ -9,7 +9,19 @@
     flex-wrap: nowrap;
 }
 
-.comicList li { 
+.comicListItem {
     float: left;
     width: 20%;
+    margin: 5px;
+}
+.buffer {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.inventoryHeaderContainer {
+    margin-top: 7%;
+}
+
+.inventoryHeader{
+    text-align: center;
 }

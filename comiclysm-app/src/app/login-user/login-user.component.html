@@ -1,5 +1,23 @@
-<form>
-  <input placeholder = "Enter username" [(ngModel)] = "userName" name="userName">
-  <input type = "password" placeholder= "password" [(ngModel)] = "userPassword" name = "userName">
-  <input type="button" (click) = "userLogin(userName, userPassword)">
-</form>
+<div class = "completeContainer">
+  <div class = "loginFormContainer">
+      <div class = "headingContainer">
+          <h1 class = "loginHeading"> Enter Comiclysm</h1>
+        </div>
+      <div class = "loginForm">
+        <div class = "loginUserNameContainer">
+            <h3 class = "LoginUserNameHeader"> Username</h3>
+            <input class = "loginUserName" placeholder = "Enter username" [(ngModel)] = "userName" name="userName">
+        </div> 
+          <div class = "loginPasswordContainer">
+              <h3 class = "LoginUserPasswordHeader"> Password</h3>
+              <input class = "loginPassword" type = "password" placeholder= "password" [(ngModel)] = "userPassword" name = "userName">
+          </div>
+          <div class = "loginButtonContainer">
+              <button class = "loginButton" (click) = "userLogin(userName, userPassword)">
+                Login
+              </button>
+          </div>
+        </div>
+  </div>
+</div>
+<app-register-login-nav-bar></app-register-login-nav-bar>

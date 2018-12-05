@@ -6,7 +6,7 @@
           {{inventoryName}} </h1>
   </div>
   <ul class = "comicList">
-    <li *ngFor = "let comic of listOfComics">
+    <li class = "comicListItem" *ngFor = "let comic of listOfComics">
       <app-comic-card [comic] = "comic"></app-comic-card> 
     </li>
   </ul>

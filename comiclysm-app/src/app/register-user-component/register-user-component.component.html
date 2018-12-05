@@ -1,11 +1,23 @@
-<div class = "user-registration-container">
-  <div class = "user_name_input_container">
-    <input placeholder = "username" [(ngModel)] = "userName">
+<div class = "completeContainer">
+    <div class = "userRegistrationContainer">
+        <div class = "headingContainer">
+            <h1 class = "registrationHeading"> Register For Comiclysm</h1>
+          </div>
+        <div class = "registrationForm">
+          <div class = "registerUserNameContainer">
+              <h3 class = "RegisterUserNameHeader"> Username</h3>
+              <input class = "registerUserName" placeholder = "Enter username" [(ngModel)] = "userName" name="userName">
+          </div> 
+            <div class = "registerPasswordContainer">
+                <h3 class = "RegisterUserPasswordHeader"> Password</h3>
+                <input class = "registerPassword" type = "password" placeholder= "password" [(ngModel)] = "userPassword" name = "userName">
+            </div>
+            <div class = "registerButtonContainer">
+                <button class = "registerButton" (click) = "register(userName, userPassword)">
+                  Register
+                </button>
+            </div>
+          </div>
+    </div>
   </div>
-  <div class = "user_password_input_container">
-    <input placeholder = "password" [(ngModel)] = "userPassword">
-  </div>
-  <div class = "register_button_container">
-    <button class = "register-button" (click) = "registerUser(userName, userPassword)"> Register </button>
-  </div>
-</div>
+  <app-register-login-nav-bar></app-register-login-nav-bar>

@@ -53,4 +53,8 @@ export class UserInventoryComponent implements OnInit {
     this.router.navigate(['inventoryDetails' + '/' + inventoryName + '/' + inventoryId]);
   }
 
+  toggleAddInventoryButton() {
+    this.addAnInventory = !this.addAnInventory;
+  }
+
 }

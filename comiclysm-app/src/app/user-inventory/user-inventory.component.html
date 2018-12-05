@@ -3,7 +3,11 @@
 <div class = "container">
     <div class = "row">
       <div class = "inventoryLandingContainer">
-          <h1 class = "inventoryLandingHeader"> {{inventoryOwnerName}}'s Inventory </h1>
+          <h1 class = "inventoryLandingHeader" *ngIf = "inventoryList.length == 0"> 
+            {{inventoryOwnerName}}'s Inventory </h1>
+          <h1 class = "inventoryLandingHeader" *ngIf = "inventoryList.length > 0"> 
+            {{inventoryOwnerName}}'s Inventories
+          </h1>
         </div>
     </div>
     <div class = "row">
@@ -11,8 +15,8 @@
         <div class = "inventoryListContainer">
           <ul class = "inventoryList">
             <div  *ngIf = "inventoryList.length > 0" class = "inventoryListItem">
-              <li *ngFor = "let inventory of inventoryList"> 
-                  {{inventory.inventoryName}} 
+              <li class = "inventoryCard" *ngFor = "let inventory of inventoryList"> 
+                  {{inventory.inventoryName}} <br>
                 <button class = "checkInventoryButton" (click) = "checkOutInventory(inventory.inventoryName, inventory.inventoryId)"> Check Inventory </button>
               </li>
             </div>
@@ -23,14 +27,12 @@
   <div class = "row">
       <div class = "inventoryControlsContainer">
           <div class = "addInventoryContainer">
-            <button class = "addInventoryButton" (click) =  "addAnInventory = true;"> Add an Inventory </button>
+            <button class = "addInventoryButton" (click) =  "toggleAddInventoryButton()"> Add an Inventory </button>
           </div>
-        </div>
-  </div>
-  <div class = "row">
-      <div *ngIf = "addAnInventory === true"class = "addInventoryPanelContainer">
-          <input placeholder = "New Inventory Name" [(ngModel)] = "newInventoryName">
-          <button class = "addInventoryButton" (click) = "addInventory(newInventoryName)"> Add </button>
+          <div *ngIf = "addAnInventory === true"class = "addInventoryPanelContainer">
+              <input class = "addInventoryInput" placeholder = "New Inventory Name" [(ngModel)] = "newInventoryName">
+              <button class = "addInventoryButton" (click) = "addInventory(newInventoryName)"> Add </button>
+            </div>
         </div>
   </div>
 </div>

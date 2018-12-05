@@ -25,6 +25,7 @@ import { UserInventoryComponent } from './user-inventory/user-inventory.componen
 import { TradeComponent } from './trade/trade.component';
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
 import { InventoryDetailsComponent } from './inventory-details/inventory-details.component';
+import { RegisterLoginNavBarComponent } from './register-login-nav-bar/register-login-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { InventoryDetailsComponent } from './inventory-details/inventory-details
     UserInventoryComponent,
     TradeComponent,
     ComicDetailsComponent,
-    InventoryDetailsComponent
+    InventoryDetailsComponent,
+    RegisterLoginNavBarComponent
   ],
   imports: [
     BrowserModule,

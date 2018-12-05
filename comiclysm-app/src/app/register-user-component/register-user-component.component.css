@@ -1,24 +1,68 @@
-
-.user-registration-container{  
-    width: 100%; 
-    display: block; 
-    margin: 0 auto;
-    background-color:black;
+html{
+    background-color: black !important;
+}
+.completeContainer,.registrationHeading{
+    text-align: center;
+}
+.completeContainer{ 
+    margin-top: 0px;
 }
 
-
-.user_name_input_container, .user_password_input_container, .register_button_container  { 
-    width: 100%; 
-    margin: 0 auto;
+.registrationHeading {
+    margin-top: 20px;
+}
+.userRegistrationContainer{
+    width: 50%;
+    height: 420px;
     display: block;
+    margin: 50px 300px 50px 300px;
+    background-color: white;
+    box-shadow: -5px 10px 50px rgb(5, 117, 209);
+    border-radius: 5%;
+}
+
+.registrationForm{
+    width: 80%;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 10px rgb(5, 117, 209);
     flex-wrap: wrap;
-}
-
-.register_button { 
-    width: 100%;
     display: block;
-    margin: 0 auto;
-    background-color: blue; 
+    margin-left: 10%;
+}
+.registerUserNameContainer, .registerPasswordContainer, .registerButtonContainer{
+     width: 100%;
+    float:left;
+    display: block;
+}
+.RegisterUserNameHeader,.RegisterUserPasswordHeader { 
+    font-size: 25px;
+}
+.registerUserName, .registerPassword {
+    font-size: 15px;
+    color: rgb(90, 90, 90);
+    border-radius: 5%;
+}
+.registerButtonContainer
+{
+    margin-top: 10%;
+}
+.registerButton {
+    background-color: rgb(5, 117, 209);
     color: white;
+    width: 50%;
+    font-family: 'Russo One', sans-serif;
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid rgb(182, 182, 182);
+    border-radius: 3%;
+    
 }
 
+.registerButton:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    transition: box-shadow 0.7s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
