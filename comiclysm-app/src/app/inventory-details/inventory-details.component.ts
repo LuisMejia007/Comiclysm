@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { Comic } from '../models/Comic';
 import { ComiclysmService } from '../services/comiclysm.service';
 import { Trade } from '../models/Trade';
@@ -11,7 +11,9 @@ import { Trade } from '../models/Trade';
 })
 export class InventoryDetailsComponent implements OnInit {
 
-  constructor(private service: ComiclysmService, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: ComiclysmService,
+    private activatedRoute: ActivatedRoute,
+    private route: Router) { }
 
   inventoryName: string;
   inventoryID: string;
@@ -34,6 +36,7 @@ export class InventoryDetailsComponent implements OnInit {
     const trade = new Trade();
     trade.setTradeComicToTradeId(comic.comicId);
     this.service.addComicToTrade(trade).subscribe();
+    this.route.navigate(['/inventory']);
   }
 
 }

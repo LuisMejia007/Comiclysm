@@ -19,6 +19,7 @@
       <ul class = "yourComicsList">
           <li class = "listItem" *ngFor = "let comics of yourComics"> 
             {{comics.comicName}}
+            <button class = "tradeYourComicButton" (click) = "completeTrade(comics.comicInventoryId, comics.comicId)"> Trade! </button>
           </li>
         </ul>
       </div>

@@ -116,4 +116,15 @@ export class ComiclysmService {
     return this.http.get<Comic[]>(url, httpOptions);
   }
 
+
+  switchInventoryIds(oldInventoryId: number, newInventoryId: number, comicId: number) {
+    const url = this.base_url + 'tradeComics/' + oldInventoryId + '/' + newInventoryId + '/' + comicId;
+    return this.http.put(url, httpOptions);
+  }
+
+  removeComicFromTrade(comicId: number) {
+    const url = this.base_url + 'removeFromTrade/' + comicId;
+    return this.http.delete(url, httpOptions);
+  }
+
 }

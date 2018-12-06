@@ -26,4 +26,14 @@ public class TradeService {
         this.tradeRepository.save(trade);
     }
 
+
+    public void tradeComics(int oldInventoryId, int newInventoryId, int comicId) {
+        this.tradeRepository.switchInventoryIds(oldInventoryId, newInventoryId, comicId);
+    }
+
+
+    public void removeFromTrade(int comicId) {
+        this.tradeRepository.removeFromTrade(comicId);
+    }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ComiclysmService } from '../services/comiclysm.service';
 import {Comic } from '../models/Comic';
 import {User} from '../models/User';
@@ -11,7 +11,10 @@ import {User} from '../models/User';
 })
 export class TradeDetailsComponent implements OnInit {
 
-  constructor(private routeManager: ActivatedRoute, private service: ComiclysmService) { }
+  constructor(
+    private routeManager: ActivatedRoute,
+    private service: ComiclysmService,
+    private router: Router) { }
 
   comicForTradeInventoryId: number;
   comicForTradeId: number;
@@ -44,5 +47,20 @@ export class TradeDetailsComponent implements OnInit {
     this.service
     .getComicsFromYourInventories(this.yourUserId)
     .subscribe(comics => this.yourComics = comics);
+  }
+
+
+  completeTrade(yourComicInventoryId: number, yourComicId: number) {
+
+    console.log('You wanna trade: ' + yourComicInventoryId + ' for: ' + this.comicForTradeId);
+    const saveInvIdBeforeUpdate = this.comicForTradeInventoryId;
+    // First Update Comic For Trade
+    this.service.switchInventoryIds(this.comicForTradeInventoryId, yourComicInventoryId, this.comicForTradeId).subscribe();
+    // Then Update The Comic You Offered
+    this.service.switchInventoryIds(yourComicInventoryId, saveInvIdBeforeUpdate, yourComicId).subscribe();
+
+    this.service.removeComicFromTrade(this.comicForTradeId);
+    this.router.navigate(['/inventory']);
+
   }
 }

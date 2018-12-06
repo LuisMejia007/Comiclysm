@@ -37,6 +37,21 @@ public class TradeController {
     }
 
 
+    @CrossOrigin(origins = localHost)
+    @PutMapping(value = "tradeComics/{oldInventoryId}/{newInventoryId}/{comicId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void tradeComics(@PathVariable int oldInventoryId, @PathVariable int newInventoryId, @PathVariable int comicId){
+        this.tradeService.tradeComics(oldInventoryId, newInventoryId, comicId);
+    }
 
+
+    @CrossOrigin(origins = localHost)
+    @DeleteMapping(value = "removeFromTrade/{comicId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void removeFromTrade(@PathVariable int comicId) {
+        this.tradeService.removeFromTrade(comicId);
+    }
 
 }

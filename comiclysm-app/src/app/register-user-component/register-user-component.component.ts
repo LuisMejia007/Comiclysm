@@ -30,7 +30,7 @@ export class RegisterUserComponentComponent implements OnInit {
     this.newUser = new User();
     this.newUser.setUserName(userName);
     this.newUser.setUserPassword(userPassword);
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/login');
     this.service.addUser(this.newUser).subscribe();
   }
 

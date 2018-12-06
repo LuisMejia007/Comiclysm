@@ -19,18 +19,17 @@ public interface TradeRepository extends CrudRepository<Trade, Integer> {
     List<Comic> getComicsSetForTrade(@Param("myUserId") int myUserId);
 
 
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE Comic c SET c.comicInventoryId = :comicOfferedInventoryId WHERE c.comicInventoryId = :comicForTradeInventoryId")
-    int changeComicForTradeInventoryId(@Param("comicForTradeInventoryId") int comicForTradeInventoryId, @Param("comicOfferedInventoryId") Integer comicOfferedInventoryId);
-
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE Comic c SET c.comicInventoryId = :comicForTradeInventoryId WHERE c.comicInventoryId = :comicOfferedInventoryId")
-    int changeComicOfferedInventoryId(@Param("comicForTradeInventoryId") int comicForTradeInventoryId, @Param("comicOfferedInventoryId") Integer comicOfferedInventoryId);
+    @Query(value = "UPDATE Comic c SET c.comicInventoryId = :comicNewInventoryId WHERE c.comicId = :myComicId AND c.comicInventoryId = :comicOldInventoryId")
+    int switchInventoryIds(@Param("comicOldInventoryId") int comicOldInventoryId, @Param("comicNewInventoryId") int comicNewInventoryId, @Param("myComicId") int myComicId);
 
     // Delete a tuple from the trade table
     @Override
     void delete(Trade trade);
+
+
+    @Query(value = "DELETE FROM Trade t WHERE t.tradeComicToTradeId = :comicToTradeId")
+    int removeFromTrade(@Param("comicToTradeId") int comicToTradeId);
 }

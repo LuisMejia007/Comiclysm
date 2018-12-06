@@ -44,6 +44,7 @@ export class UserInventoryComponent implements OnInit {
       this.inventoryList = inventories;
       localStorage.removeItem('LoggedUserInventories');
       localStorage.setItem('LoggedUserInventories', JSON.stringify(this.inventoryList));
+      this.router.navigate(['/inventory']);
     });
   }
 
