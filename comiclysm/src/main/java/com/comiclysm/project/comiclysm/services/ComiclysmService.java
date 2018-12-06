@@ -98,4 +98,13 @@ public class ComiclysmService {
         return this.comicRepository.getComicsFromInventory(comicInventoryId);
     }
 
+
+    public Comic getComicByInventoryId(@RequestParam int inventoryId, @RequestParam int comicId){
+        return this.comicRepository.getThatComicByInventoryIdAndComicId(inventoryId, comicId);
+    }
+
+    public List<Comic> getComicsFromYourInventory(@RequestParam int userId){
+        return this.comicRepository.getComicsFromYourInventories(userId);
+    }
+
 }

@@ -8,6 +8,7 @@
   <ul class = "comicList">
     <li class = "comicListItem" *ngFor = "let comic of listOfComics">
       <app-comic-card [comic] = "comic"></app-comic-card> 
+      <button (click) = "addComicToTrade(comic)"> Trade </button>
     </li>
   </ul>
 </div>

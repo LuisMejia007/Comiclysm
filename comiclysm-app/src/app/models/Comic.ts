@@ -6,7 +6,7 @@ export class Comic {
     comicPublicationDate: string;
     comicCoverImg: string;
     comicVolumeName: string;
-
+    comicInventoryId: number;
 
     constructor() {}
 
@@ -36,6 +36,10 @@ export class Comic {
 
     getComicId(): number {
         return this.comicId;
+    }
+
+    getComicInventoryId() {
+        return this.comicInventoryId;
     }
 
 }

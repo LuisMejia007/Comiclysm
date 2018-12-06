@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { Comic } from '../models/Comic';
 import { ComiclysmService } from '../services/comiclysm.service';
+import { Trade } from '../models/Trade';
 
 @Component({
   selector: 'app-inventory-details',
@@ -23,10 +24,16 @@ export class InventoryDetailsComponent implements OnInit {
 
 
   getComicsFromInventory(inventoryId: string) {
-
         this.service
         .getComicsFromInventory(+inventoryId)
         .subscribe(comics => this.listOfComics = comics);
+  }
+
+
+  addComicToTrade(comic: Comic) {
+    const trade = new Trade();
+    trade.setTradeComicToTradeId(comic.comicId);
+    this.service.addComicToTrade(trade).subscribe();
   }
 
 }

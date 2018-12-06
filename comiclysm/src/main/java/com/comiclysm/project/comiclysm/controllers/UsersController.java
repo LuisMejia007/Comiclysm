@@ -20,7 +20,10 @@ public class UsersController {
     @Autowired
     UsersService usersService;
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    public static final String ipAdd = "http://10.35.46.112:4200";
+    public static final String localHostClient = "http://localhost:1200";
+
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value="allUsers/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -28,7 +31,7 @@ public class UsersController {
       return this.usersService.getAllUsers();
     }
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @PostMapping(value = "register/{userName}_{userPassword}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -38,7 +41,7 @@ public class UsersController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value="login/{userName}_{userPassword}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

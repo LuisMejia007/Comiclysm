@@ -1,0 +1,25 @@
+
+
+<app-nav-bar></app-nav-bar>
+
+<div class = "tradeDetailsContainer">
+
+  <div class = "comicToTradeContainer">
+    <div class = "comicToTradeCard">
+      <div class = "comicToTradeImgContainer">
+        <img class = "comicToTradeImg" src = "{{comicForTrade.comicCoverImg}}"/>
+      </div>
+      <div class = "comicToTradeNameContainer">
+          <p class = "comicToTradeName" >{{comicForTrade.comicName}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class = "yourComicsToOfferContainer">
+      <ul class = "yourComicsList">
+          <li class = "listItem" *ngFor = "let comics of yourComics"> 
+            {{comics.comicName}}
+          </li>
+        </ul>
+      </div>
+  </div>

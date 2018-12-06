@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Comic } from '../models/Comic';
 import {Inventory} from '../models/Inventory';
+import { Trade } from '../models/Trade';
 
 const httpOptions = {
   headers: new HttpHeaders({'string-type': 'application/json'})
@@ -16,6 +17,7 @@ const httpOptions = {
 export class ComiclysmService {
 
   base_url = 'http://localhost:8080/';
+  ip_base_url = '10.35.46.112:/';
 
   constructor(private http: HttpClient) {
   }
@@ -44,7 +46,6 @@ export class ComiclysmService {
     return this.http.get(this.base_url + 'showComics/page=' + pageNum.toString());
   }
 
-
   getPageOfComicsByName(name: string, pageNum: number): Observable<any>   {
     name = name.replace(' ', '');
     return this.http.get(this.base_url + 'showComicsByName/' + name + '/page=' + pageNum.toString());
@@ -69,7 +70,6 @@ export class ComiclysmService {
     comicName = comicName.replace('#', '_');
     return this.http.get(this.base_url + 'comicDetails/' + comicName);
   }
-
   /*** Inventory Services ***/
   addInventoryService(inventory: Inventory): Observable<Inventory> {
     const url = 'addInventory/' + inventory.getInventoryName() + '_' + inventory.getInventoryUserId().toString();
@@ -91,6 +91,28 @@ export class ComiclysmService {
 
   getComicsFromInventory(inventoryId: number ): Observable<Comic[]> {
     const url = this.base_url + 'getComicsFromInventory/inventory=' + inventoryId;
+    return this.http.get<Comic[]>(url, httpOptions);
+  }
+
+  getComicByInventoryId(inventoryId: number, comicName: number): Observable<any> {
+    const url = this.base_url + 'getComicByInventoryId/inventory=' + inventoryId + '/comic=' + comicName;
+    return this.http.get(url, httpOptions);
+  }
+
+
+  /*** Trade Services  ***/
+  addComicToTrade(trade: Trade): Observable<Trade> {
+    const url = this.base_url + 'addComicToTrade/' + trade.getTradeComicToTradeId();
+    return this.http.post<Trade>(url, trade, httpOptions);
+  }
+
+  getComicsInTrade(userId: number): Observable<Comic[]> {
+    const url = this.base_url + 'getComicsInTrade/' + userId;
+    return this.http.get<Comic[]>(url, httpOptions);
+  }
+
+  getComicsFromYourInventories(userId: number): Observable<Comic[]> {
+    const url = this.base_url + 'getComicsFromYourInventories/user=' + userId;
     return this.http.get<Comic[]>(url, httpOptions);
   }
 

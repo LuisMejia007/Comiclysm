@@ -1,4 +1,12 @@
 <app-nav-bar></app-nav-bar>
-<p>
-  trade works!
-</p>
+
+<div class = "container">
+  <div class = "row">
+    <ul class = "listOfComics">
+    <li class = "listItem" *ngFor = "let comic of comicsInTrade">
+      <app-comic-card [comic] = "comic"></app-comic-card>
+      <button class = "conductTradeBtn" (click) = "goToTradeDetails(comic.comicInventoryId, comic.comicId)"> Conduct Trade! </button>
+    </li>
+  </ul>
+  </div>
+</div>

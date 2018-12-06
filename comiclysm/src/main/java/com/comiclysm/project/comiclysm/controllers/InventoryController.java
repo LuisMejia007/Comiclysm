@@ -13,7 +13,10 @@ public class InventoryController {
     @Autowired
     InventoryService inventoryService;
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    public static final String ipAdd = "http://10.35.46.112:4200";
+    public static final String localHostClient = "http://localhost:1200";
+
+    @CrossOrigin(origins = localHostClient)
     @PostMapping(value = "addInventory/{inventoryName}_{inventoryUserId}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -24,7 +27,7 @@ public class InventoryController {
 
 
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value = "getMyInventories/{inventoryUserId}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

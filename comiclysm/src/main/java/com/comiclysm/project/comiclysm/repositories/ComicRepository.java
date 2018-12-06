@@ -59,4 +59,14 @@ public interface ComicRepository extends CrudRepository<Comic, Integer> {
     @Query(value = "SELECT c FROM Comic c WHERE c.comicInventoryId = :inventoryId")
     List<Comic> getComicsFromInventory(@Param("inventoryId") Integer inventoryId);
 
+
+
+    @Query(value = "SELECT c FROM Comic c WHERE c.comicInventoryId = :inventoryId AND c.comicId = :myComicId")
+    Comic getThatComicByInventoryIdAndComicId(@Param("inventoryId") int inventoryId, @Param("myComicId") int myComicId);
+
+
+
+    @Query(value = "SELECT DISTINCT c FROM Comic c, Inventory i, User u WHERE c.comicInventoryId = i.inventoryId AND i.inventoryUserId = :userId")
+    List<Comic> getComicsFromYourInventories(@Param("userId") int userId);
+
 }

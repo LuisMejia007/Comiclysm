@@ -1,0 +1,11 @@
+.listItem{
+    width: 50%;
+}
+
+.conductTradeBtn{
+    margin-top: 10px;
+    width: 100%;
+    display: block;
+    float: left;
+}
+

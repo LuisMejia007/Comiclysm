@@ -26,6 +26,8 @@ import { TradeComponent } from './trade/trade.component';
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
 import { InventoryDetailsComponent } from './inventory-details/inventory-details.component';
 import { RegisterLoginNavBarComponent } from './register-login-nav-bar/register-login-nav-bar.component';
+import { TradeDetailsComponent } from './trade-details/trade-details.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { RegisterLoginNavBarComponent } from './register-login-nav-bar/register-
     TradeComponent,
     ComicDetailsComponent,
     InventoryDetailsComponent,
-    RegisterLoginNavBarComponent
+    RegisterLoginNavBarComponent,
+    TradeDetailsComponent
   ],
   imports: [
     BrowserModule,

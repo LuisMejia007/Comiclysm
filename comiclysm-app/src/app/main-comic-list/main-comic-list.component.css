@@ -32,7 +32,8 @@
 
 .paginationList { 
     list-style: none;
-    width: 100%;
+    width: 50%;
+    margin-left: 25%;
 }
 
 .paginationItems { 
@@ -43,4 +44,10 @@
 
 .paginationLink {
     text-decoration: none;
+    margin: 0px 2px;
+    color: rgb(5, 117, 209);
+}
+
+.paginationLink:hover{
+    cursor: pointer;
 }

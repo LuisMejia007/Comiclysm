@@ -1,20 +1,20 @@
 <div class = "sideBarContainer">
   <div class = "sideBarFiltersContainer">
     <div class = "filterByNameContainer">
-      <input placeholder = "Enter Character Name:" [(ngModel)] = "comicNameInput">
-      <button (click) = "callFilterByName()"> Search </button>
+      <input class = "searchInput" placeholder = "Enter Character Name:" [(ngModel)] = "comicNameInput"><br>
+      <button class = "searchButton" (click) = "callFilterByName()"> Search </button>
     </div>
     <div class = "filterByYearContainer">
-      <input placeholder = "Enter Year:" [(ngModel)] = "comicDateInput">
-      <button (click) = "callFilterByYear()"> Search </button>
+      <input class = "searchInput" placeholder = "Enter Year:" [(ngModel)] = "comicDateInput"><br>
+      <button class = "searchButton" (click) = "callFilterByYear()"> Search </button>
     </div>
     <div class = "filterByWriterContainer">
-      <input placeholder = "Enter Writer's Name:" [(ngModel)] = "comicWriterInput">
-      <button (click) = "callFilterByWriter()">Search </button>
+      <input class = "searchInput" placeholder = "Enter Writer's Name:" [(ngModel)] = "comicWriterInput"><br>
+      <button class = "searchButton" (click) = "callFilterByWriter()">Search </button>
     </div>
     <div class = "filterByArtistContainer">
-      <input placeholder = "Enter Artist's Name:" [(ngModel)] = "comicArtistInput">
-      <button (click) = "callFilterByArtist()">Search</button>
+      <input class = "searchInput" placeholder = "Enter Artist's Name:" [(ngModel)] = "comicArtistInput"> <br>
+      <button class = "searchButton" (click) = "callFilterByArtist()">Search</button>
     </div>
   </div>
 

@@ -10,6 +10,24 @@
 .sideBarFiltersContainer{
     margin-top: 150px;
 }
-button {
-    background-color: white;
+
+.filterByNameContainer, .filterByYearContainer, .filterByWriterContainer, .filterByArtistContainer {
+    margin: 20px 0px;
+    border: 1px solid black;
+}
+.searchButton {
+    background-color: rgb(5, 117, 209);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    padding: 5px;
+    font-family: 'Russo One', sans-serif;
+    width: 100%;
+    border-color: black;
+    
+}
+.searchInput{
+    width: 97%;
+}
+.searchButton:hover{
+    cursor: pointer;
 }

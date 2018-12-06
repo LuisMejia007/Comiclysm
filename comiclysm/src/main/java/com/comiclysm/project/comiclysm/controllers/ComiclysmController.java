@@ -14,16 +14,18 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 
-@Controller
 
+@Controller
 public class ComiclysmController {
 
     @Autowired
     ComiclysmService comiclysmService;
 
+    public static final String ipAdd = "http://10.35.46.112:4200";
+    public static final String localHostClient = "http://localhost:1200";
 
     // Get A Comic
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value = "/comicDetails/{comic_name}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -33,7 +35,7 @@ public class ComiclysmController {
 
 
     // Getting all Comics
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value = "/getComics")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -43,7 +45,7 @@ public class ComiclysmController {
 
 
     // Getting Comics by Name
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value="/getComics/{comic_name}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -56,7 +58,7 @@ public class ComiclysmController {
 
 
     // Getting Comics By Writer
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value="/getComicsByWriter/{writer_name}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -65,7 +67,7 @@ public class ComiclysmController {
     }
 
     // Getting Comics by Artist
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value="/getComicsByArtist/{artist_name}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -75,7 +77,7 @@ public class ComiclysmController {
 
 
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value="/getFeaturedComics")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -84,7 +86,7 @@ public class ComiclysmController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value ="/showComics/page={pageNum}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -93,7 +95,7 @@ public class ComiclysmController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value ="/showComicsByName/{name}/page={pageNum}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -111,7 +113,7 @@ public class ComiclysmController {
         return this.comiclysmService.showPagesWithComicName(name, pageNum);
     }
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value ="/showComicsByWriter/{writer}/page={pageNum}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -128,7 +130,7 @@ public class ComiclysmController {
         return this.comiclysmService.showPagesWithComicWriter(writer, pageNum);
     }
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value ="/showComicsByArtist/{artist}/page={pageNum}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -145,7 +147,7 @@ public class ComiclysmController {
         return this.comiclysmService.showPagesWithComicArtist(artist, pageNum);
     }
 
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value ="/showComicsByDate/{date}/page={pageNum}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -163,7 +165,7 @@ public class ComiclysmController {
 
 
     // Updating a Comic's Inventory Id:
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @PutMapping(value = "/addComicToInventory/{inventoryId}/{comicId}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -174,11 +176,31 @@ public class ComiclysmController {
 
 
     // Getting Comics From a User's Inventory
-    @CrossOrigin(origins = "http://localhost:1200")
+    @CrossOrigin(origins = localHostClient)
     @GetMapping(value = "/getComicsFromInventory/inventory={inventoryId}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Comic> getComicsFromInventory(@PathVariable int inventoryId){
         return this.comiclysmService.getComicsFromInventory(inventoryId);
+    }
+
+
+    // Getting a Comic by Inventory Id
+    @CrossOrigin(origins = localHostClient)
+    @GetMapping(value = "/getComicByInventoryId/inventory={inventoryId}/comic={comicId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Comic getComicByInventoryId(@PathVariable int inventoryId, @PathVariable int comicId){
+        return this.comiclysmService.getComicByInventoryId(inventoryId, comicId);
+    }
+
+
+    // Getting Comics From a User's Inventory
+    @CrossOrigin(origins = localHostClient)
+    @GetMapping(value = "/getComicsFromYourInventories/user={userId}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Comic> getComicsFromYourInventories(@PathVariable int userId){
+        return this.comiclysmService.getComicsFromYourInventory(userId);
     }
 }
