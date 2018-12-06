@@ -9,4 +9,65 @@
     float: left;
     margin: 0 auto;
 }
+.comicToTradeContainer {
+    margin-left: 2%;
+}
 
+.comicToTradeCard {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: black;
+    color: white;
+}
+.comicToTradeImg {
+    margin: 0px 30%;
+}
+
+.comicToTradeNameContainer {
+
+}
+.comicToTradeName {
+    text-align: center;
+}
+.yourComicsToOfferContainer {
+    height: 100%;
+    width: 45%;
+}
+.yourComicsList {
+    list-style: none;
+    width: 100%;
+}
+.listItem {
+    width: 100%;
+    float: left;
+    display: block;
+}
+
+.comicName {
+    color: black;
+    padding: 10px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    float: left;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.tradeYourComicButton {
+    background-color: rgb(5, 117, 209);
+    color: white;
+    padding: 10px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.tradeYourComicButton:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    transition: box-shadow 0.7s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}

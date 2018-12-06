@@ -1,5 +1,20 @@
+.tradeHeadingContainer {
+    margin-top: 7%;
+}
+.tradeHeading {
+    text-align: center;
+}
+
+.listOfComics {
+    width: 100%;
+    list-style: none;
+}
 .listItem{
-    width: 50%;
+    float: left;
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 20%;
 }
 
 .conductTradeBtn{
@@ -7,5 +22,18 @@
     width: 100%;
     display: block;
     float: left;
+    background-color: rgb(5, 117, 209);
+    color: white;
+    padding: 10px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
 }
 
+
+.conductTradeBtn:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    transition: box-shadow 0.7s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}

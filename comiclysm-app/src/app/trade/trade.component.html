@@ -2,6 +2,11 @@
 
 <div class = "container">
   <div class = "row">
+    <div class = "tradeHeadingContainer">
+      <h1 class = "tradeHeading"> Comics For Trade </h1>
+    </div>
+  </div>
+  <div class = "row">
     <ul class = "listOfComics">
     <li class = "listItem" *ngFor = "let comic of comicsInTrade">
       <app-comic-card [comic] = "comic"></app-comic-card>

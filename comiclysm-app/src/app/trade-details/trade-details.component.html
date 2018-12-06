@@ -18,7 +18,7 @@
   <div class = "yourComicsToOfferContainer">
       <ul class = "yourComicsList">
           <li class = "listItem" *ngFor = "let comics of yourComics"> 
-            {{comics.comicName}}
+            <h3 class = "comicName"> {{comics.comicName}} </h3>
             <button class = "tradeYourComicButton" (click) = "completeTrade(comics.comicInventoryId, comics.comicId)"> Trade! </button>
           </li>
         </ul>
